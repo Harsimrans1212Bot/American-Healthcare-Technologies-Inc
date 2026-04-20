@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Service & Maintenance — AHT</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/shared.css?v=1776659983034"/>
+<link rel="stylesheet" href="css/scroll-fx.css?v=1776659983034"/>
+<style>
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--ink);background:var(--surface)}
+  .plan{padding:36px 32px;border-right:1px solid var(--rule);display:flex;flex-direction:column;gap:16px;position:relative}
+  .plan:last-child{border-right:0}
+  .plan.featured{background:var(--ink);color:var(--bg)}
+  .plan.featured .n{color:var(--brand-sky)}
+  .plan.featured h3 em{color:var(--brand-sky)}
+  .plan.featured li{border-color:rgba(255,255,255,.14)}
+  .plan.featured .price{color:var(--bg)}
+  .plan .n{font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.14em;color:var(--accent);text-transform:uppercase}
+  .plan h3{margin:0;font-family:var(--font-display);font-weight:400;font-size:32px;letter-spacing:-0.02em}
+  .plan h3 em{font-style:italic;color:var(--accent)}
+  .plan .price{font-family:var(--font-display);font-size:18px;color:var(--muted);letter-spacing:-0.01em}
+  .plan ul{list-style:none;padding:0;margin:12px 0 0;display:flex;flex-direction:column;gap:0}
+  .plan li{padding:11px 0;border-top:1px dashed var(--rule);font-size:14px;display:flex;gap:10px;align-items:flex-start}
+  .plan li::before{content:"+";color:var(--accent);font-family:var(--font-mono);font-weight:600;flex:0 0 auto}
+  .plan.featured li::before{color:var(--brand-sky)}
+  .plan .cta{margin-top:auto;padding-top:16px}
+
+  .modal-support{display:grid;grid-template-columns:repeat(6,1fr);border:1px solid var(--rule);background:var(--surface);margin-top:32px}
+  .modal-support .m{padding:22px;border-right:1px solid var(--rule);text-align:center}
+  .modal-support .m:last-child{border-right:0}
+  .modal-support .m .ic{font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.12em;color:var(--accent);text-transform:uppercase;margin-bottom:6px}
+  .modal-support .m .n{font-family:var(--font-display);font-size:22px;letter-spacing:-0.015em}
+
+  .sla-bar{display:grid;grid-template-columns:repeat(3,1fr);margin-top:28px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+  .sla-bar > div{padding:28px;border-right:1px solid var(--rule)}
+  .sla-bar > div:last-child{border-right:0}
+  .sla-bar b{font-family:var(--font-display);font-size:38px;letter-spacing:-0.02em;display:block;line-height:1}
+  .sla-bar b em{font-style:italic;color:var(--accent)}
+  .sla-bar span{font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.14em;color:var(--muted);text-transform:uppercase;display:block;margin-top:10px}
+
+  @media (max-width:980px){.plans{grid-template-columns:1fr}.modal-support{grid-template-columns:1fr 1fr 1fr}.sla-bar{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-page="services" data-screen-label="Service">
+<header id="site-nav">
+<nav class="nav">
+    <div class="container nav-inner">
+      <a class="caliper-logo" href="index.html" aria-label="American Healthcare Technologies — home">
+        <img class="caliper-mark" src="assets/aht_mark.png" alt="AHT mark"/>
+        <span class="logo-words"><b>American <i class="hc">Healthcare</i><br/>Technologies</b><span>Est. 1992 · New York, NY</span></span>
+      </a>
+      <ul class="nav-links" role="menubar">
+        <li><a data-nav="home" href="index.html">Home</a></li>
+        <li>
+          <a class="navtop" href="equipment.html" data-nav="equipment" role="menuitem" aria-haspopup="true">Equipment <span class="caret"></span></a>
+          <div class="dropdown" role="menu">
+            <a href="equipment.html"><span>All equipment</span><span class="dd-sub">Overview</span></a>
+            <a href="equipment-mri.html"><span>MRI systems</span><span class="dd-sub">1.5T · 3T</span></a>
+            <a href="equipment-ct.html"><span>CT scanners</span><span class="dd-sub">16–128 slice</span></a>
+            <a href="equipment-ultrasound.html"><span>Ultrasound</span><span class="dd-sub">GE · Philips · Mindray</span></a>
+            <a href="equipment-xray.html"><span>X-Ray</span><span class="dd-sub">DR · CR · RF</span></a>
+            <a href="equipment-mammography.html"><span>Mammography</span><span class="dd-sub">2D · 3D tomo</span></a>
+            <a href="equipment-carm.html"><span>C-Arms</span><span class="dd-sub">Surgical · mobile</span></a>
+          </div>
+        </li>
+        <li>
+          <a class="navtop" href="service.html" data-nav="services" role="menuitem" aria-haspopup="true">Services <span class="caret"></span></a>
+          <div class="dropdown" role="menu">
+            <a href="service.html"><span>Service & Maintenance</span><span class="dd-sub">24/7 support</span></a>
+            <a href="parts.html"><span>Parts</span><span class="dd-sub">OEM · refurbished</span></a>
+            <a href="installation.html"><span>Installation & De-install</span><span class="dd-sub">Rigging · site-prep</span></a>
+          </div>
+        </li>
+        <li><a data-nav="about" href="about.html">About</a></li>
+        <li><a data-nav="contact" href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="phone-cta" href="tel:+19178565211" aria-label="Call +1-(917)-856-5211">
+          <span class="ring" aria-hidden="true">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+          </span>
+          <span class="pnum">+1-(917)-856-5211</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+<main>
+  <section class="page-head"><div class="container">
+    <div class="crumbs"><a href="index.html">Home</a><span class="sep">/</span><b>Service & Maintenance</b></div>
+    <h1><em>Service</em> & maintenance.</h1>
+    <p class="intro">Preventative maintenance contracts, time-and-materials repair, and a 24/7 emergency line staffed by imaging engineers — not a ticket queue.</p>
+    <div class="meta"><span>Response target <b>4 hours</b></span><span>On-site target <b>24 hours</b></span><span>Coverage <b>48 states <span class="ph">Placeholder</span></b></span></div>
+  </div></section>
+
+  <section class="reveal"><div class="container">
+    <div class="section-head">
+      <div><div class="section-num">01 / Plans</div><h2 class="sec">Coverage that <em>fits</em>.</h2></div>
+      <p>Three straightforward tiers — pick the one that matches how much risk you want to hold in-house.</p>
+    </div>
+    <div class="plans">
+      <div class="plan">
+        <span class="n">01 / Essential</span>
+        <h3>Essential</h3>
+        <span class="price"><span class="ph">Placeholder pricing</span></span>
+        <ul>
+          <li>2 preventative maintenance visits / year</li>
+          <li>Phone support — business hours</li>
+          <li>Remote diagnostics</li>
+          <li>Labor at discounted rate</li>
+          <li>Loaner parts program</li>
+        </ul>
+        <div class="cta"><a class="btn ghost" href="contact.html">Request a quote →</a></div>
+      </div>
+      <div class="plan featured">
+        <span class="n">02 / Protect</span>
+        <h3>Protect <em>24/7</em></h3>
+        <span class="price"><span class="ph">Placeholder pricing</span></span>
+        <ul>
+          <li>4 preventative maintenance visits / year</li>
+          <li>24/7 emergency phone + dispatch</li>
+          <li>All parts included</li>
+          <li>Labor and travel included</li>
+          <li>Uptime guarantee (95%)</li>
+          <li>Quarterly report to your biomed team</li>
+        </ul>
+        <div class="cta"><a class="btn accent" href="contact.html">Request a quote →</a></div>
+      </div>
+      <div class="plan">
+        <span class="n">03 / On-demand</span>
+        <h3>Time & materials</h3>
+        <span class="price"><span class="ph">Placeholder pricing</span></span>
+        <ul>
+          <li>Pay-as-you-go service calls</li>
+          <li>Phone triage included</li>
+          <li>Flat-rate hourly billing</li>
+          <li>Parts billed at invoice + markup</li>
+          <li>Ideal for owned-outright fleets</li>
+        </ul>
+        <div class="cta"><a class="btn ghost" href="contact.html">Request a visit →</a></div>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="reveal"><div class="container">
+    <div class="section-head">
+      <div><div class="section-num">02 / Coverage</div><h2 class="sec">Every <em>modality</em> we sell.</h2></div>
+      <p>Service technicians trained across the OEMs we broker. If we sold it, we can service it. If we didn't, we probably still can — ask.</p>
+    </div>
+    <div class="modal-support">
+      <div class="m"><div class="ic">01</div><div class="n">MRI</div></div>
+      <div class="m"><div class="ic">02</div><div class="n">CT</div></div>
+      <div class="m"><div class="ic">03</div><div class="n">Ultrasound</div></div>
+      <div class="m"><div class="ic">04</div><div class="n">X-Ray</div></div>
+      <div class="m"><div class="ic">05</div><div class="n">Mammo</div></div>
+      <div class="m"><div class="ic">06</div><div class="n">C-Arm</div></div>
+    </div>
+
+    <div class="sla-bar">
+      <div><b><em>4 hr</em></b><span>Phone response target</span></div>
+      <div><b><em>24 hr</em></b><span>On-site target</span></div>
+      <div><b><em>95%</em></b><span>Uptime guarantee · Protect tier</span></div>
+    </div>
+  </div></section>
+
+  <section class="reveal"><div class="container">
+    <div class="cta-banner">
+      <div><h3>System <em>down</em> right now?</h3><p>Call the emergency line. An imaging engineer will pick up — same people who do the installs.</p></div>
+      <div class="cta-right"><span class="lbl">24/7 emergency</span><a class="big-phone" href="tel:+19178565211">+1-(917)-856-5211</a></div>
+    </div>
+  </div></section>
+</main>
+<footer id="site-footer">
+<div class="container">
+    <div class="foot-big">American <em>Healthcare</em> Technologies</div>
+    <div class="foot-grid">
+      <div class="foot-col foot-brand">
+        <a class="caliper-logo" href="index.html">
+          <img class="caliper-mark" src="assets/aht_mark.png" alt=""/>
+          <span class="logo-words"><b>American <i class="hc">Healthcare</i><br/>Technologies</b><span>Est. 1992 · New York, NY</span></span>
+        </a>
+        <p>Pre-owned and refurbished medical imaging equipment, service, parts and installation — supporting imaging facilities across North America.</p>
+      </div>
+      <div class="foot-col">
+        <h6>Equipment</h6>
+        <a href="equipment-mri.html">MRI systems</a>
+        <a href="equipment-ct.html">CT scanners</a>
+        <a href="equipment-ultrasound.html">Ultrasound</a>
+        <a href="equipment-xray.html">X-Ray</a>
+        <a href="equipment-mammography.html">Mammography</a>
+        <a href="equipment-carm.html">C-Arms</a>
+      </div>
+      <div class="foot-col">
+        <h6>Services</h6>
+        <a href="service.html">Service & Maintenance</a>
+        <a href="parts.html">Parts</a>
+        <a href="installation.html">Installation & De-install</a>
+        <a href="about.html">About us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="foot-col">
+        <h6>Contact</h6>
+        <div class="foot-contact">
+          <a href="tel:+19178565211">+1-(917)-856-5211</a><br/>
+          <a href="mailto:info@ahtiny.com">info@ahtiny.com</a>
+          <b>Hours</b>
+          Mon–Fri · 8:00–18:00 ET<br/>
+          Sat · On-call<br/>
+          24/7 emergency service
+          <b>Address <span class="ph">Placeholder</span></b>
+          [Placeholder street]<br/>
+          [Placeholder city, state ZIP]
+          <b>Social</b>
+          <a href="#" aria-label="LinkedIn">LinkedIn →</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span data-year></span> American Healthcare Technologies, Inc.</span>
+      <span>All rights reserved</span>
+    </div>
+  </div>
+</footer>
+<script src="js/shared.js?v=1776659983034"></script>
+<script src="js/scroll-fx.js?v=1776659983034"></script>
+</body></html>

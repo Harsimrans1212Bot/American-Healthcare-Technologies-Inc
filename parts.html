@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Parts — AHT</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/shared.css?v=1776659983034"/>
+<link rel="stylesheet" href="css/scroll-fx.css?v=1776659983034"/>
+<style>
+  .search-row{display:grid;grid-template-columns:1fr auto;gap:12px;margin-top:24px;padding:18px;border:1px solid var(--ink);background:var(--surface)}
+  .search-row input{border:0;background:var(--bg);padding:14px 16px;font-family:inherit;font-size:15px;color:var(--ink);outline:none;border:1px solid transparent;transition:border-color .15s}
+  .search-row input:focus{border-color:var(--ink)}
+  .search-row button{padding:0 22px;background:var(--ink);color:var(--bg);font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase}
+  .search-row button:hover{background:var(--accent)}
+  .cats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}
+  .cat{border:1px solid var(--rule);background:var(--surface);padding:24px;display:flex;flex-direction:column;gap:10px;transition:background .18s,border-color .18s}
+  .cat:hover{background:var(--surface-2);border-color:var(--ink)}
+  .cat .k{font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.14em;color:var(--accent);text-transform:uppercase}
+  .cat h4{margin:0;font-family:var(--font-display);font-size:22px;letter-spacing:-0.015em}
+  .cat p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}
+  .cat .count{font-family:var(--font-mono);font-size:11px;color:var(--ink);margin-top:auto;padding-top:10px;border-top:1px dashed var(--rule-soft)}
+
+  .parts-table{border:1px solid var(--ink);background:var(--surface);margin-top:24px}
+  .parts-head,.parts-row{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr auto;gap:18px;padding:14px 22px;align-items:center;font-size:14px}
+  .parts-head{background:var(--ink);color:var(--bg);font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase}
+  .parts-row{border-top:1px solid var(--rule-soft);transition:background .15s}
+  .parts-row:hover{background:var(--bg-2)}
+  .parts-row .p-name b{font-family:var(--font-display);font-weight:500;font-size:16px;letter-spacing:-0.01em;display:block}
+  .parts-row .p-name span{font-family:var(--font-mono);font-size:10.5px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase}
+  .parts-row .p-cond{font-family:var(--font-mono);font-size:10.5px;padding:3px 8px;border:1px solid var(--rule);color:var(--muted);display:inline-block;letter-spacing:0.08em;text-transform:uppercase}
+  .parts-row .p-cond.oem{color:var(--accent);border-color:var(--accent)}
+  .parts-row .p-mono{font-family:var(--font-mono);font-size:12px;color:var(--ink)}
+  .parts-row .qbtn{padding:6px 12px;border:1px solid var(--rule);font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink);background:var(--bg);cursor:pointer}
+  .parts-row .qbtn:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+  @media (max-width:980px){.cats{grid-template-columns:1fr 1fr}.parts-head{display:none}.parts-row{grid-template-columns:1fr auto}.parts-row > :nth-child(n+2):nth-child(-n+4){grid-column:1 / -1;font-size:12px}}
+</style>
+</head>
+<body data-page="services" data-screen-label="Parts">
+<header id="site-nav">
+<nav class="nav">
+    <div class="container nav-inner">
+      <a class="caliper-logo" href="index.html" aria-label="American Healthcare Technologies — home">
+        <img class="caliper-mark" src="assets/aht_mark.png" alt="AHT mark"/>
+        <span class="logo-words"><b>American <i class="hc">Healthcare</i><br/>Technologies</b><span>Est. 1992 · New York, NY</span></span>
+      </a>
+      <ul class="nav-links" role="menubar">
+        <li><a data-nav="home" href="index.html">Home</a></li>
+        <li>
+          <a class="navtop" href="equipment.html" data-nav="equipment" role="menuitem" aria-haspopup="true">Equipment <span class="caret"></span></a>
+          <div class="dropdown" role="menu">
+            <a href="equipment.html"><span>All equipment</span><span class="dd-sub">Overview</span></a>
+            <a href="equipment-mri.html"><span>MRI systems</span><span class="dd-sub">1.5T · 3T</span></a>
+            <a href="equipment-ct.html"><span>CT scanners</span><span class="dd-sub">16–128 slice</span></a>
+            <a href="equipment-ultrasound.html"><span>Ultrasound</span><span class="dd-sub">GE · Philips · Mindray</span></a>
+            <a href="equipment-xray.html"><span>X-Ray</span><span class="dd-sub">DR · CR · RF</span></a>
+            <a href="equipment-mammography.html"><span>Mammography</span><span class="dd-sub">2D · 3D tomo</span></a>
+            <a href="equipment-carm.html"><span>C-Arms</span><span class="dd-sub">Surgical · mobile</span></a>
+          </div>
+        </li>
+        <li>
+          <a class="navtop" href="service.html" data-nav="services" role="menuitem" aria-haspopup="true">Services <span class="caret"></span></a>
+          <div class="dropdown" role="menu">
+            <a href="service.html"><span>Service & Maintenance</span><span class="dd-sub">24/7 support</span></a>
+            <a href="parts.html"><span>Parts</span><span class="dd-sub">OEM · refurbished</span></a>
+            <a href="installation.html"><span>Installation & De-install</span><span class="dd-sub">Rigging · site-prep</span></a>
+          </div>
+        </li>
+        <li><a data-nav="about" href="about.html">About</a></li>
+        <li><a data-nav="contact" href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="phone-cta" href="tel:+19178565211" aria-label="Call +1-(917)-856-5211">
+          <span class="ring" aria-hidden="true">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+          </span>
+          <span class="pnum">+1-(917)-856-5211</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+<main>
+  <section class="page-head"><div class="container">
+    <div class="crumbs"><a href="index.html">Home</a><span class="sep">/</span><b>Parts</b></div>
+    <h1>Imaging <em>parts</em>.</h1>
+    <p class="intro">OEM, aftermarket, and refurbished parts for MRI, CT, X-Ray, Ultrasound. Indexed, tested, shipped next-day when in stock.</p>
+    <div class="meta"><span>Catalog size <b>12,000+ <span class="ph">Placeholder</span></b></span><span>Ship time <b>Next-day avg.</b></span><span>Warranty <b>90-day std.</b></span></div>
+
+    <div class="search-row">
+      <input placeholder="Search part number, modality, or description (e.g. GE 5200000-2, MRI RF coil, CT tube…)"/>
+      <button>Search</button>
+    </div>
+  </div></section>
+
+  <section class="reveal"><div class="container">
+    <div class="section-head">
+      <div><div class="section-num">01 / Categories</div><h2 class="sec">Find by <em>category</em>.</h2></div>
+      <p>Counts shown are live inventory. For parted-out whole systems, call — not everything is listed.</p>
+    </div>
+    <div class="cats">
+      <a class="cat"><span class="k">MRI</span><h4>RF coils</h4><p>Head, body, knee, shoulder, breast, spine. All major platforms.</p><span class="count">420+ in stock <span class="ph">ph</span></span></a>
+      <a class="cat"><span class="k">MRI</span><h4>Gradient amps</h4><p>Replacements and refurbs for Aera, Skyra, Signa.</p><span class="count">18 in stock</span></a>
+      <a class="cat"><span class="k">CT</span><h4>X-ray tubes</h4><p>Straton, Performix, MRC. With tube-count history.</p><span class="count">62 in stock</span></a>
+      <a class="cat"><span class="k">CT</span><h4>DAS / detector</h4><p>Data acquisition boards and detector modules.</p><span class="count">34 in stock</span></a>
+      <a class="cat"><span class="k">US</span><h4>Probes / transducers</h4><p>Linear, curved, phased, TEE, endocavity.</p><span class="count">300+ in stock</span></a>
+      <a class="cat"><span class="k">XR</span><h4>Flat-panel detectors</h4><p>Wireless and tethered. Canon, Varex, Trixell.</p><span class="count">48 in stock</span></a>
+      <a class="cat"><span class="k">XR</span><h4>HV generators</h4><p>High-voltage generators and tanks for DR & RF.</p><span class="count">22 in stock</span></a>
+      <a class="cat"><span class="k">Shared</span><h4>Consoles & monitors</h4><p>Medical-grade monitors, PCs, and replacement consoles.</p><span class="count">110+ in stock</span></a>
+    </div>
+
+    <div class="parts-table" aria-label="Featured parts">
+      <div class="parts-head">
+        <span>Part · Description</span>
+        <span>Modality</span>
+        <span>Condition</span>
+        <span>Ships</span>
+        <span></span>
+      </div>
+      <div class="parts-row"><div class="p-name"><b>GE 5200000-2 — 8ch head coil</b><span>Signa HDxt · 1.5T</span></div><span class="p-mono">MRI</span><span class="p-cond oem">OEM</span><span class="p-mono">24 hr</span><button class="qbtn">Quote →</button></div>
+      <div class="parts-row"><div class="p-name"><b>Siemens Straton MX — CT tube</b><span>SOMATOM Definition AS</span></div><span class="p-mono">CT</span><span class="p-cond">Refurb</span><span class="p-mono">48 hr</span><button class="qbtn">Quote →</button></div>
+      <div class="parts-row"><div class="p-name"><b>Philips X7-2t — TEE probe</b><span>EPIQ / iE33</span></div><span class="p-mono">Ultrasound</span><span class="p-cond oem">OEM</span><span class="p-mono">24 hr</span><button class="qbtn">Quote →</button></div>
+      <div class="parts-row"><div class="p-name"><b>Canon CXDI-710C wireless DR</b><span>Universal DR rooms</span></div><span class="p-mono">X-Ray</span><span class="p-cond">Refurb</span><span class="p-mono">24 hr</span><button class="qbtn">Quote →</button></div>
+      <div class="parts-row"><div class="p-name"><b>GE Performix Pro — CT tube</b><span>LightSpeed VCT</span></div><span class="p-mono">CT</span><span class="p-cond oem">OEM</span><span class="p-mono">72 hr</span><button class="qbtn">Quote →</button></div>
+      <div class="parts-row"><div class="p-name"><b>Hologic Dimensions — Gantry board</b><span>Selenia Dimensions</span></div><span class="p-mono">Mammo</span><span class="p-cond">Refurb</span><span class="p-mono">48 hr</span><button class="qbtn">Quote →</button></div>
+    </div>
+    <p style="font-family:var(--font-mono);font-size:11px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-top:16px"><span class="ph">Placeholder</span> — full live-search parts catalog is phase-2.</p>
+  </div></section>
+
+  <section class="reveal"><div class="container">
+    <div class="cta-banner">
+      <div><h3>Can't find the <em>part</em>?</h3><p>We get asked for one-off or obsolete parts weekly. Send the part number or a photo and we'll source it.</p></div>
+      <div class="cta-right"><span class="lbl">Parts desk</span><a class="big-phone" href="tel:+19178565211">+1-(917)-856-5211</a><a class="btn ghost" style="border-color:rgba(255,255,255,.2);color:#fff" href="contact.html">Email it over →</a></div>
+    </div>
+  </div></section>
+</main>
+<footer id="site-footer">
+<div class="container">
+    <div class="foot-big">American <em>Healthcare</em> Technologies</div>
+    <div class="foot-grid">
+      <div class="foot-col foot-brand">
+        <a class="caliper-logo" href="index.html">
+          <img class="caliper-mark" src="assets/aht_mark.png" alt=""/>
+          <span class="logo-words"><b>American <i class="hc">Healthcare</i><br/>Technologies</b><span>Est. 1992 · New York, NY</span></span>
+        </a>
+        <p>Pre-owned and refurbished medical imaging equipment, service, parts and installation — supporting imaging facilities across North America.</p>
+      </div>
+      <div class="foot-col">
+        <h6>Equipment</h6>
+        <a href="equipment-mri.html">MRI systems</a>
+        <a href="equipment-ct.html">CT scanners</a>
+        <a href="equipment-ultrasound.html">Ultrasound</a>
+        <a href="equipment-xray.html">X-Ray</a>
+        <a href="equipment-mammography.html">Mammography</a>
+        <a href="equipment-carm.html">C-Arms</a>
+      </div>
+      <div class="foot-col">
+        <h6>Services</h6>
+        <a href="service.html">Service & Maintenance</a>
+        <a href="parts.html">Parts</a>
+        <a href="installation.html">Installation & De-install</a>
+        <a href="about.html">About us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="foot-col">
+        <h6>Contact</h6>
+        <div class="foot-contact">
+          <a href="tel:+19178565211">+1-(917)-856-5211</a><br/>
+          <a href="mailto:info@ahtiny.com">info@ahtiny.com</a>
+          <b>Hours</b>
+          Mon–Fri · 8:00–18:00 ET<br/>
+          Sat · On-call<br/>
+          24/7 emergency service
+          <b>Address <span class="ph">Placeholder</span></b>
+          [Placeholder street]<br/>
+          [Placeholder city, state ZIP]
+          <b>Social</b>
+          <a href="#" aria-label="LinkedIn">LinkedIn →</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span data-year></span> American Healthcare Technologies, Inc.</span>
+      <span>All rights reserved</span>
+    </div>
+  </div>
+</footer>
+<script src="js/shared.js?v=1776659983034"></script>
+<script src="js/scroll-fx.js?v=1776659983034"></script>
+</body></html>

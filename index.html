@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>American Healthcare Technologies — Imaging equipment, service & parts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/shared.css?v=1776659983034"/>
+<link rel="stylesheet" href="css/scroll-fx.css?v=1776659983034"/>
+<style>
+  /* Home-only styles */
+  .hero{position:relative;padding:80px 0 120px;overflow:hidden}
+  .hero-inner{position:relative;z-index:3;max-width:780px}
+  .hero .bg{
+    position:absolute;right:-2%;top:-2%;width:46%;height:110%;opacity:.95;pointer-events:none;z-index:1;
+    display:grid;place-items:center;
+    will-change:transform,opacity;
+    transition:opacity 120ms linear;
+  }
+  .hero .bg img{max-width:100%;height:auto;filter:drop-shadow(0 30px 60px rgba(3,78,169,.18))}
+  /* Actual logo block inside hero copy */
+  .hero-logo{
+    display:inline-flex;align-items:center;gap:18px;
+    padding:14px 20px 14px 14px;border:1px solid var(--rule);background:var(--surface);
+    margin-bottom:28px;
+  }
+  .hero-logo img{width:56px;height:56px;display:block}
+  .hero-logo .words{display:flex;flex-direction:column;line-height:1.05}
+  .hero-logo .words b{font-family:var(--font-display);font-weight:500;font-size:16px;letter-spacing:-0.01em;color:var(--ink)}
+  .hero-logo .words span{font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.14em;color:var(--muted);text-transform:uppercase;margin-top:4px}
+  .hero .bg::before{
+    content:"";position:absolute;inset:-10%;
+    background:radial-gradient(circle at 60% 40%, rgba(172,233,251,.45), transparent 60%);
+    z-index:-1;
+  }
+  h1.display{
+    font-family:var(--font-display);font-weight:400;
+    font-size:clamp(52px, 7vw, 104px);
+    line-height:0.98;letter-spacing:-0.03em;margin:22px 0 24px;text-wrap:balance;
+  }
+  h1.display em{font-style:italic;color:var(--accent);font-weight:500}
+  h1.display .thin{font-weight:400;color:var(--muted)}
+  .hero p.lead{color:var(--ink-2);font-size:19px;line-height:1.6;max-width:540px;margin:0 0 36px}
+  .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:44px;align-items:center}
+  .hero-ctas .callout{
+    display:inline-flex;align-items:center;gap:14px;padding:12px 18px;border:1px solid var(--rule);background:var(--surface);
+    font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);
+  }
+  .hero-ctas .callout b{font-family:var(--font-display);font-size:20px;color:var(--ink);letter-spacing:-0.01em;text-transform:none;font-weight:500}
+  .hero-ctas .callout b a{display:inline-flex;align-items:center;gap:8px}
+  .hero-ctas .callout b a:hover{color:var(--accent)}
+
+  /* Modality strip on home */
+  .modalities{padding:80px 0}
+  .modalities .section-head{margin-bottom:40px}
+
+  /* Services split */
+  .svc-split{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink);border-left:1px solid var(--rule)}
+  .svc-split .s{
+    padding:40px 32px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--surface);
+    display:flex;flex-direction:column;gap:14px;position:relative;transition:background .18s;
+  }
+  .svc-split .s:hover{background:var(--surface-2)}
+  .svc-split .s .n{font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.14em;color:var(--accent);text-transform:uppercase}
+  .svc-split .s h4{margin:0;font-family:var(--font-display);font-weight:400;font-size:28px;letter-spacing:-0.02em;line-height:1.05}
+  .svc-split .s p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.55;flex:1}
+  .svc-split .s .go{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);padding-top:10px;border-top:1px dashed var(--rule-soft);transition:color .15s, gap .15s}
+  .svc-split .s:hover .go{color:var(--accent);gap:12px}
+
+  /* Promise strip */
+  .promise{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:48px 0}
+  .promise .p{padding:26px 24px;border-right:1px dashed var(--rule);display:flex;flex-direction:column;gap:8px}
+  .promise .p:last-child{border-right:0}
+  .promise .p .k{font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.12em;color:var(--muted);text-transform:uppercase}
+  .promise .p .v{font-family:var(--font-display);font-weight:400;font-size:26px;letter-spacing:-0.02em;line-height:1.05}
+  .promise .p .v em{font-style:italic;color:var(--accent)}
+
+  /* How it works */
+  .hiw{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--rule);background:var(--surface);counter-reset:step}
+  .hiw .step{padding:32px;border-right:1px solid var(--rule);counter-increment:step;display:flex;flex-direction:column;gap:12px;position:relative}
+  .hiw .step:last-child{border-right:0}
+  .hiw .step::before{content:counter(step,decimal-leading-zero);font-family:var(--font-mono);font-size:11px;color:var(--accent);letter-spacing:0.16em}
+  .hiw .step h5{margin:0;font-family:var(--font-display);font-weight:400;font-size:22px;letter-spacing:-0.02em;line-height:1.05}
+  .hiw .step p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.5}
+
+  /* Inline mark svg for hero background */
+  .hero-dipole{width:min(460px, 100%);height:auto;display:block;object-fit:contain;will-change:transform}
+  @media (max-width:900px){
+    .hero .bg{position:relative;right:auto;top:auto;width:100%;height:auto;margin-top:24px}
+    .svc-split,.promise,.hiw{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:600px){
+    .svc-split,.promise,.hiw{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body data-page="home" data-screen-label="Home">
+
+<header id="site-nav">
+<nav class="nav">
+    <div class="container nav-inner">
+      <a class="caliper-logo" href="index.html" aria-label="American Healthcare Technologies — home">
+        <img class="caliper-mark" src="assets/aht_mark.png" alt="AHT mark"/>
+        <span class="logo-words"><b>American <i class="hc">Healthcare</i><br/>Technologies</b><span>Est. 1992 · New York, NY</span></span>
+      </a>
+      <ul class="nav-links" role="menubar">
+        <li><a data-nav="home" href="index.html">Home</a></li>
+        <li>
+          <a class="navtop" href="equipment.html" data-nav="equipment" role="menuitem" aria-haspopup="true">Equipment <span class="caret"></span></a>
+          <div class="dropdown" role="menu">
+            <a href="equipment.html"><span>All equipment</span><span class="dd-sub">Overview</span></a>
+            <a href="equipment-mri.html"><span>MRI systems</span><span class="dd-sub">1.5T · 3T</span></a>
+            <a href="equipment-ct.html"><span>CT scanners</span><span class="dd-sub">16–128 slice</span></a>
+            <a href="equipment-ultrasound.html"><span>Ultrasound</span><span class="dd-sub">GE · Philips · Mindray</span></a>
+            <a href="equipment-xray.html"><span>X-Ray</span><span class="dd-sub">DR · CR · RF</span></a>
+            <a href="equipment-mammography.html"><span>Mammography</span><span class="dd-sub">2D · 3D tomo</span></a>
+            <a href="equipment-carm.html"><span>C-Arms</span><span class="dd-sub">Surgical · mobile</span></a>
+          </div>
+        </li>
+        <li>
+          <a class="navtop" href="service.html" data-nav="services" role="menuitem" aria-haspopup="true">Services <span class="caret"></span></a>
+          <div class="dropdown" role="menu">
+            <a href="service.html"><span>Service & Maintenance</span><span class="dd-sub">24/7 support</span></a>
+            <a href="parts.html"><span>Parts</span><span class="dd-sub">OEM · refurbished</span></a>
+            <a href="installation.html"><span>Installation & De-install</span><span class="dd-sub">Rigging · site-prep</span></a>
+          </div>
+        </li>
+        <li><a data-nav="about" href="about.html">About</a></li>
+        <li><a data-nav="contact" href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="phone-cta" href="tel:+19178565211" aria-label="Call +1-(917)-856-5211">
+          <span class="ring" aria-hidden="true">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+          </span>
+          <span class="pnum">+1-(917)-856-5211</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" data-screen-label="Hero">
+    <div class="bg" aria-hidden="true">
+      <!-- real mark, scaled up -->
+      <img class="hero-dipole" src="assets/aht_mark.png" alt=""/>
+    </div>
+
+    <div class="container">
+      <div class="hero-inner">
+        <span class="tag"><span class="num">01</span> Imaging equipment · service · parts</span>
+        <h1 class="display">The imaging partner <em>without the OEM markup.</em></h1>
+        <p class="lead">American Healthcare Technologies sources, services, and installs pre-owned imaging systems for hospitals, imaging centers and clinics across North America — with a parts catalog and a 24/7 service line behind every deal.</p>
+        <div class="hero-ctas">
+          <div class="callout">
+            <span>Call now</span>
+            <b><a href="tel:+19178565211">+1-(917)-856-5211</a></b>
+          </div>
+          <a class="btn ghost" href="equipment.html">Browse equipment <span class="arr">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Promise strip -->
+  <div class="container reveal">
+    <div class="promise">
+      <div class="p"><span class="k">Systems delivered</span><span class="v">500+ <span class="ph">Placeholder</span></span></div>
+      <div class="p"><span class="k">Parts in catalog</span><span class="v">12k <span class="ph">Placeholder</span></span></div>
+      <div class="p"><span class="k">Service response</span><span class="v"><em>24/7</em></span></div>
+    </div>
+  </div>
+
+  <!-- Modalities -->
+  <section class="modalities reveal" data-screen-label="Modalities">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="section-num">01 / Equipment</div>
+          <h2 class="sec">Every <em>modality</em>, one partner.</h2>
+        </div>
+        <p>We buy, refurbish, and broker a full range of diagnostic imaging equipment — from 1.5T magnets to handheld ultrasound. Browse by category, or tell us what you need.</p>
+      </div>
+      <div class="cardgrid stagger">
+        <a class="mod-card" href="equipment-mri.html">
+          <div class="kicker"><span>01</span><b>MRI</b></div>
+          <h3>MRI systems</h3>
+          <p>1.5T and 3T whole-body scanners from GE, Siemens, Philips, Hitachi — refurbished, recoiled, warrantied.</p>
+          <div class="cfoot"><b>12 in stock <span class="ph">Placeholder</span></b><span class="go">View →</span></div>
+        </a>
+        <a class="mod-card" href="equipment-ct.html">
+          <div class="kicker"><span>02</span><b>CT</b></div>
+          <h3>CT scanners</h3>
+          <p>16-, 64-, and 128-slice CTs with documented tube counts, cradle history and current calibration data.</p>
+          <div class="cfoot"><b>9 in stock <span class="ph">Placeholder</span></b><span class="go">View →</span></div>
+        </a>
+        <a class="mod-card" href="equipment-ultrasound.html">
+          <div class="kicker"><span>03</span><b>US</b></div>
+          <h3>Ultrasound</h3>
+          <p>Cart-based and portable ultrasound — general, cardiac, vascular, OB/GYN — with probe-swap and trade-in programs.</p>
+          <div class="cfoot"><b>40+ in stock <span class="ph">Placeholder</span></b><span class="go">View →</span></div>
+        </a>
+        <a class="mod-card" href="equipment-xray.html">
+          <div class="kicker"><span>04</span><b>X-Ray</b></div>
+          <h3>X-Ray / DR / RF</h3>
+          <p>Digital radiography rooms, mobile X-ray, R/F suites — with detector options and room-design consulting.</p>
+          <div class="cfoot"><b>18 in stock <span class="ph">Placeholder</span></b><span class="go">View →</span></div>
+        </a>
+        <a class="mod-card" href="equipment-mammography.html">
+          <div class="kicker"><span>05</span><b>MAMMO</b></div>
+          <h3>Mammography</h3>
+          <p>2D and 3D tomosynthesis mammography systems, MQSA-ready with documented phantom history.</p>
+          <div class="cfoot"><b>6 in stock <span class="ph">Placeholder</span></b><span class="go">View →</span></div>
+        </a>
+        <a class="mod-card" href="equipment-carm.html">
+          <div class="kicker"><span>06</span><b>C-ARM</b></div>
+          <h3>C-Arms</h3>
+          <p>Surgical and mobile C-Arms — pain management, ortho, vascular. Pulsed-fluoro ready, fully serviced.</p>
+          <div class="cfoot"><b>14 in stock <span class="ph">Placeholder</span></b><span class="go">View →</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="reveal" data-screen-label="Services">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="section-num">02 / Services</div>
+          <h2 class="sec">Beyond the <em>sale.</em></h2>
+        </div>
+        <p>An imaging system is the easy part. What matters is keeping it running — and getting it in, out, and back up fast. Three services, one phone number.</p>
+      </div>
+      <div class="svc-split">
+        <a class="s" href="service.html">
+          <span class="n">01 / Service</span>
+          <h4>Service & Maintenance</h4>
+          <p>Preventative maintenance contracts, time-and-materials repair, and a 24/7 emergency line staffed by imaging engineers.</p>
+          <span class="go">Learn more →</span>
+        </a>
+        <a class="s" href="parts.html">
+          <span class="n">02 / Parts</span>
+          <h4>Parts</h4>
+          <p>OEM, aftermarket, and refurbished parts for MRI, CT, X-Ray, Ultrasound — indexed, tested and shipped next-day.</p>
+          <span class="go">Search parts →</span>
+        </a>
+        <a class="s" href="installation.html">
+          <span class="n">03 / Install</span>
+          <h4>Installation & De-install</h4>
+          <p>Rigging, site-prep, cryogen and magnet work, room reconstruction, and DICOM/PACS integration, start to finish.</p>
+          <span class="go">See the process →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- How we work -->
+  <section class="reveal" data-screen-label="Process">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="section-num">03 / Process</div>
+          <h2 class="sec">How an <em>AHT deal</em> runs.</h2>
+        </div>
+        <p>From the first scoping call to first-patient scan — a concise, documented process that your biomed team, finance team and radiologist can all follow.</p>
+      </div>
+      <div class="hiw">
+        <div class="step"><h5>Scope</h5><p>We learn your facility, patient volume, and existing install base — then shortlist systems that fit.</p></div>
+        <div class="step"><h5>Source</h5><p>Inspection, de-install, transport and refurbishment — with documentation for every serial number.</p></div>
+        <div class="step"><h5>Install</h5><p>Site-prep, rigging, calibration, and applications training. A single project manager owns the date.</p></div>
+        <div class="step"><h5>Support</h5><p>Service contract and parts line — typically live within 48 hours of first scan.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <div class="container reveal">
+    <div class="stats-row stagger">
+      <div class="stat"><span class="num"><em>500+</em></span><span class="lbl">Systems delivered</span><span class="sub">MRI, CT, Ultrasound, X-Ray — North America</span></div>
+      <div class="stat"><span class="num">33 yrs</span><span class="lbl">In business</span><span class="sub">Family-owned since 1992</span></div>
+      <div class="stat"><span class="num"><em>24/7</em></span><span class="lbl">Service line</span><span class="sub">Imaging engineers, not a call center</span></div>
+      <div class="stat"><span class="num">2 days</span><span class="lbl">Parts ship avg.</span><span class="sub">From order to dock <span class="ph">Placeholder</span></span></div>
+    </div>
+  </div>
+
+  <!-- CTA banner -->
+  <section class="reveal" data-screen-label="CTA">
+    <div class="container">
+      <div class="cta-banner">
+        <div>
+          <h3>Need something <em>today?</em></h3>
+          <p>Equipment down, tube out, cryo venting? Call the after-hours line and talk to an engineer — not a ticket queue.</p>
+        </div>
+        <div class="cta-right">
+          <span class="lbl">24/7 service</span>
+          <a class="big-phone" href="tel:+19178565211">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+            +1-(917)-856-5211
+          </a>
+          <a class="btn ghost" style="border-color:rgba(255,255,255,.2);color:#fff" href="contact.html">Or send a message →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer">
+<div class="container">
+    <div class="foot-big">American <em>Healthcare</em> Technologies</div>
+    <div class="foot-grid">
+      <div class="foot-col foot-brand">
+        <a class="caliper-logo" href="index.html">
+          <img class="caliper-mark" src="assets/aht_mark.png" alt=""/>
+          <span class="logo-words"><b>American <i class="hc">Healthcare</i><br/>Technologies</b><span>Est. 1992 · New York, NY</span></span>
+        </a>
+        <p>Pre-owned and refurbished medical imaging equipment, service, parts and installation — supporting imaging facilities across North America.</p>
+      </div>
+      <div class="foot-col">
+        <h6>Equipment</h6>
+        <a href="equipment-mri.html">MRI systems</a>
+        <a href="equipment-ct.html">CT scanners</a>
+        <a href="equipment-ultrasound.html">Ultrasound</a>
+        <a href="equipment-xray.html">X-Ray</a>
+        <a href="equipment-mammography.html">Mammography</a>
+        <a href="equipment-carm.html">C-Arms</a>
+      </div>
+      <div class="foot-col">
+        <h6>Services</h6>
+        <a href="service.html">Service & Maintenance</a>
+        <a href="parts.html">Parts</a>
+        <a href="installation.html">Installation & De-install</a>
+        <a href="about.html">About us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="foot-col">
+        <h6>Contact</h6>
+        <div class="foot-contact">
+          <a href="tel:+19178565211">+1-(917)-856-5211</a><br/>
+          <a href="mailto:info@ahtiny.com">info@ahtiny.com</a>
+          <b>Hours</b>
+          Mon–Fri · 8:00–18:00 ET<br/>
+          Sat · On-call<br/>
+          24/7 emergency service
+          <b>Address <span class="ph">Placeholder</span></b>
+          [Placeholder street]<br/>
+          [Placeholder city, state ZIP]
+          <b>Social</b>
+          <a href="#" aria-label="LinkedIn">LinkedIn →</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span data-year></span> American Healthcare Technologies, Inc.</span>
+      <span>All rights reserved</span>
+    </div>
+  </div>
+</footer>
+<script src="js/shared.js?v=1776659983034"></script>
+<script src="js/scroll-fx.js?v=1776659983034"></script>
+<script>
+  // Hero logo parallax: drift up + fade as user scrolls past hero
+  (function(){
+    const bg = document.querySelector('.hero .bg');
+    const mark = document.querySelector('.hero-dipole');
+    if (!bg || !mark) return;
+    let ticking = false;
+    function update(){
+      const y = window.scrollY || 0;
+      const h = window.innerHeight || 800;
+      // fade from 1 to 0 between 0 and 60% of viewport height
+      const t = Math.min(1, Math.max(0, y / (h * 0.6)));
+      const lift = y * -0.35;                // drift upward ~35% of scroll
+      const scale = 1 - t * 0.12;             // shrink subtly to 0.88
+      const rot = t * -4;                     // tiny rotate for life
+      bg.style.opacity = String(1 - t);
+      mark.style.transform = `translate3d(0, ${lift}px, 0) scale(${scale}) rotate(${rot}deg)`;
+      ticking = false;
+    }
+    window.addEventListener('scroll', () => {
+      if (!ticking) { requestAnimationFrame(update); ticking = true; }
+    }, {passive:true});
+    update();
+  })();
+</script>
+</body>
+</html>

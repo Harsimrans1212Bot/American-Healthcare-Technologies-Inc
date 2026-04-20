@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>About — AHT</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/shared.css?v=1776659983034"/>
+<link rel="stylesheet" href="css/scroll-fx.css?v=1776659983034"/>
+<style>
+  .about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:start}
+  .prose p{font-size:17px;line-height:1.7;color:var(--ink-2);margin:0 0 20px;max-width:62ch}
+  .prose p.lead{font-size:20px;color:var(--ink);line-height:1.55}
+  .sidecard{border:1px solid var(--ink);background:var(--surface);padding:28px;box-shadow:12px 12px 0 -6px var(--accent)}
+  .sidecard h6{font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.14em;color:var(--muted);text-transform:uppercase;margin:0 0 14px;padding-bottom:10px;border-bottom:1px solid var(--rule)}
+  .sidecard .row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dotted var(--rule-soft);font-family:var(--font-mono);font-size:12.5px}
+  .sidecard .row b{color:var(--ink);font-weight:500}
+  .sidecard .row span{color:var(--muted)}
+  .values{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink);border-left:1px solid var(--rule)}
+  .values .v{padding:32px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--surface)}
+  .values .v .k{font-family:var(--font-mono);font-size:10.5px;color:var(--accent);letter-spacing:0.14em;text-transform:uppercase}
+  .values .v h4{margin:16px 0 10px;font-family:var(--font-display);font-weight:400;font-size:26px;letter-spacing:-0.02em}
+  .values .v p{margin:0;color:var(--muted);font-size:14px;line-height:1.55}
+  .team{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:28px}
+  .person{border:1px solid var(--rule);background:var(--surface);padding:22px;display:flex;flex-direction:column;gap:8px}
+  .person .av{aspect-ratio:1;background:var(--bg-2);margin-bottom:8px;display:grid;place-items:center;color:var(--muted);font-family:var(--font-mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;position:relative}
+  .person .av .ph{position:absolute;top:8px;right:8px}
+  .person b{font-family:var(--font-display);font-weight:500;font-size:18px;letter-spacing:-0.01em}
+  .person span{font-family:var(--font-mono);font-size:11px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase}
+  .person-link{margin-top:10px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);border-top:1px solid var(--rule);padding-top:10px;display:inline-block}
+  .person-link:hover{color:var(--ink)}
+  @media (max-width:980px){.about-grid{grid-template-columns:1fr}.values{grid-template-columns:1fr}.team{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body data-page="about" data-screen-label="About">
+<header id="site-nav">
+<nav class="nav">
+    <div class="container nav-inner">
+      <a class="caliper-logo" href="index.html" aria-label="American Healthcare Technologies — home">
+        <img class="caliper-mark" src="assets/aht_mark.png" alt="AHT mark"/>
+        <span class="logo-words"><b>American <i class="hc">Healthcare</i><br/>Technologies</b><span>Est. 1992 · New York, NY</span></span>
+      </a>
+      <ul class="nav-links" role="menubar">
+        <li><a data-nav="home" href="index.html">Home</a></li>
+        <li>
+          <a class="navtop" href="equipment.html" data-nav="equipment" role="menuitem" aria-haspopup="true">Equipment <span class="caret"></span></a>
+          <div class="dropdown" role="menu">
+            <a href="equipment.html"><span>All equipment</span><span class="dd-sub">Overview</span></a>
+            <a href="equipment-mri.html"><span>MRI systems</span><span class="dd-sub">1.5T · 3T</span></a>
+            <a href="equipment-ct.html"><span>CT scanners</span><span class="dd-sub">16–128 slice</span></a>
+            <a href="equipment-ultrasound.html"><span>Ultrasound</span><span class="dd-sub">GE · Philips · Mindray</span></a>
+            <a href="equipment-xray.html"><span>X-Ray</span><span class="dd-sub">DR · CR · RF</span></a>
+            <a href="equipment-mammography.html"><span>Mammography</span><span class="dd-sub">2D · 3D tomo</span></a>
+            <a href="equipment-carm.html"><span>C-Arms</span><span class="dd-sub">Surgical · mobile</span></a>
+          </div>
+        </li>
+        <li>
+          <a class="navtop" href="service.html" data-nav="services" role="menuitem" aria-haspopup="true">Services <span class="caret"></span></a>
+          <div class="dropdown" role="menu">
+            <a href="service.html"><span>Service & Maintenance</span><span class="dd-sub">24/7 support</span></a>
+            <a href="parts.html"><span>Parts</span><span class="dd-sub">OEM · refurbished</span></a>
+            <a href="installation.html"><span>Installation & De-install</span><span class="dd-sub">Rigging · site-prep</span></a>
+          </div>
+        </li>
+        <li><a data-nav="about" href="about.html">About</a></li>
+        <li><a data-nav="contact" href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="phone-cta" href="tel:+19178565211" aria-label="Call +1-(917)-856-5211">
+          <span class="ring" aria-hidden="true">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+          </span>
+          <span class="pnum">+1-(917)-856-5211</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+<main>
+  <section class="page-head"><div class="container">
+    <div class="crumbs"><a href="index.html">Home</a><span class="sep">/</span><b>About</b></div>
+    <h1>Built for the <em>tech room</em>, not the sales deck.</h1>
+    <p class="intro">AHT is a family-owned imaging equipment company. We buy, service, install, and occasionally un-install diagnostic imaging systems for hospitals and imaging centers.</p>
+    <div class="meta"><span>Founded <b>1992</b></span><span>Headquarters <b>[Placeholder city]</b></span><span>Ownership <b>Family-owned</b></span></div>
+  </div></section>
+
+  <section class="reveal"><div class="container">
+    <div class="about-grid">
+      <div class="prose">
+        <p class="lead"><span class="ph">Placeholder story</span> — AHT started in 1992 out of a single warehouse bay with one refurbished MRI and a rented forklift. Thirty-three years later we've deliveredered 500+ imaging systems to facilities across North America.</p>
+        <p>We exist because every imaging facility — big or small — needs someone on the other end of the phone who actually knows their scanner. Not a call center. Not a sales rep. An engineer.</p>
+        <p>Every system we sell is serialized, documented, and warrantied. Every service contract is signed by the people who will actually show up. And every part we ship has been physically tested on a like-model system before it leaves our dock.</p>
+        <p>We're not trying to be the biggest imaging equipment company. We're trying to be the one your biomed team keeps on speed-dial.</p>
+      </div>
+      <aside class="sidecard">
+        <h6>AHT at a glance</h6>
+        <div class="row"><span>Founded</span><b>1992</b></div>
+        <div class="row"><span>Leadership</span><b>Harkesh Singh, CEO</b></div>
+        <div class="row"><span>Employees</span><b>[Placeholder]</b></div>
+        <div class="row"><span>Systems delivered</span><b>500+</b></div>
+        <div class="row"><span>Service contracts</span><b>[Placeholder]</b></div>
+        <div class="row"><span>Parts in catalog</span><b>12,000+</b></div>
+        <div class="row"><span>Service response</span><b>4 hours</b></div>
+        <div class="row"><span>Geographic coverage</span><b>Lower 48</b></div>
+        <div class="row"><span>Certifications</span><b>ISO 13485 <span class="ph">ph</span></b></div>
+      </aside>
+    </div>
+  </div></section>
+
+  <section class="reveal"><div class="container">
+    <div class="section-head">
+      <div><div class="section-num">01 / Values</div><h2 class="sec">What we <em>commit</em> to.</h2></div>
+      <p>Not slogans — standards. If we fail any of these, the invoice is refundable.</p>
+    </div>
+    <div class="values">
+      <div class="v"><span class="k">01</span><h4>Document everything</h4><p>Tube counts, boil-off logs, PM history, phantom results. On paper, on every unit, before money moves.</p></div>
+      <div class="v"><span class="k">02</span><h4>Engineer on the phone</h4><p>The person who picks up at 2am can actually diagnose your system. Not transfer, not ticket. Diagnose.</p></div>
+      <div class="v"><span class="k">03</span><h4>Honest refurbishment</h4><p>If a coil needs replacing to meet spec, we replace the coil. We do not "clean and re-crate."</p></div>
+      <div class="v"><span class="k">04</span><h4>Stay on schedule</h4><p>First-patient-scan dates get written into the PO. Miss the date, we eat the downtime cost.</p></div>
+      <div class="v"><span class="k">05</span><h4>One PM per project</h4><p>One phone number, one name, one email. From site survey to first scan and past go-live.</p></div>
+      <div class="v"><span class="k">06</span><h4>Leave the room better</h4><p>De-install jobs end with a room that's cleaner, safer and more re-usable than we found it.</p></div>
+    </div>
+  </div></section>
+
+  <section class="reveal"><div class="container">
+    <div class="section-head">
+      <div><div class="section-num">02 / Team</div><h2 class="sec">Who you'll be <em>talking to</em>.</h2></div>
+      <p>Small team. You'll speak to the person who actually owns the answer — not a call center.</p>
+    </div>
+    <div class="team">
+      <div class="person">
+        <div class="av"><span class="ph">photo</span>HS</div>
+        <b>Harkesh Singh</b>
+        <span>President &amp; CEO</span>
+        <a class="person-link" href="https://www.dotmed.com/virtual-trade-show/category/profiles/harkesh-singh/5481" target="_blank" rel="noopener">DotMed profile →</a>
+      </div>
+      <div class="person"><div class="av"><span class="ph">photo</span>[Initials]</div><b>[Name]</b><span>Head of service</span></div>
+      <div class="person"><div class="av"><span class="ph">photo</span>[Initials]</div><b>[Name]</b><span>Parts &amp; logistics</span></div>
+      <div class="person"><div class="av"><span class="ph">photo</span>[Initials]</div><b>[Name]</b><span>Install PM</span></div>
+    </div>
+  </div></section>
+
+  <section class="reveal"><div class="container">
+    <div class="cta-banner">
+      <div><h3>Want to <em>visit</em>?</h3><p>Our warehouse is open to customers walking their future scanner before install. Call and we'll set a time.</p></div>
+      <div class="cta-right"><a class="big-phone" href="tel:+19178565211">+1-(917)-856-5211</a><a class="btn ghost" style="border-color:rgba(255,255,255,.2);color:#fff" href="contact.html">Plan a visit →</a></div>
+    </div>
+  </div></section>
+</main>
+<footer id="site-footer">
+<div class="container">
+    <div class="foot-big">American <em>Healthcare</em> Technologies</div>
+    <div class="foot-grid">
+      <div class="foot-col foot-brand">
+        <a class="caliper-logo" href="index.html">
+          <img class="caliper-mark" src="assets/aht_mark.png" alt=""/>
+          <span class="logo-words"><b>American <i class="hc">Healthcare</i><br/>Technologies</b><span>Est. 1992 · New York, NY</span></span>
+        </a>
+        <p>Pre-owned and refurbished medical imaging equipment, service, parts and installation — supporting imaging facilities across North America.</p>
+      </div>
+      <div class="foot-col">
+        <h6>Equipment</h6>
+        <a href="equipment-mri.html">MRI systems</a>
+        <a href="equipment-ct.html">CT scanners</a>
+        <a href="equipment-ultrasound.html">Ultrasound</a>
+        <a href="equipment-xray.html">X-Ray</a>
+        <a href="equipment-mammography.html">Mammography</a>
+        <a href="equipment-carm.html">C-Arms</a>
+      </div>
+      <div class="foot-col">
+        <h6>Services</h6>
+        <a href="service.html">Service & Maintenance</a>
+        <a href="parts.html">Parts</a>
+        <a href="installation.html">Installation & De-install</a>
+        <a href="about.html">About us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="foot-col">
+        <h6>Contact</h6>
+        <div class="foot-contact">
+          <a href="tel:+19178565211">+1-(917)-856-5211</a><br/>
+          <a href="mailto:info@ahtiny.com">info@ahtiny.com</a>
+          <b>Hours</b>
+          Mon–Fri · 8:00–18:00 ET<br/>
+          Sat · On-call<br/>
+          24/7 emergency service
+          <b>Address <span class="ph">Placeholder</span></b>
+          [Placeholder street]<br/>
+          [Placeholder city, state ZIP]
+          <b>Social</b>
+          <a href="#" aria-label="LinkedIn">LinkedIn →</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span data-year></span> American Healthcare Technologies, Inc.</span>
+      <span>All rights reserved</span>
+    </div>
+  </div>
+</footer>
+<script src="js/shared.js?v=1776659983034"></script>
+<script src="js/scroll-fx.js?v=1776659983034"></script>
+</body></html>

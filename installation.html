@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Installation & De-installation — AHT</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/shared.css?v=1776659983034"/>
+<link rel="stylesheet" href="css/scroll-fx.css?v=1776659983034"/>
+<style>
+  .proc-wrap{border-top:1px solid var(--ink);border-left:1px solid var(--rule);display:grid;grid-template-columns:1.1fr 1fr}
+  .proc-list{border-right:1px solid var(--rule)}
+  .proc-item{padding:20px 28px;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:50px 1fr auto;gap:20px;align-items:center;cursor:pointer;transition:background .15s}
+  .proc-item:hover{background:var(--surface)}
+  .proc-item[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+  .proc-item[aria-selected="true"] .proc-num{color:var(--accent)}
+  .proc-item[aria-selected="true"] .dur{color:color-mix(in srgb, var(--bg) 70%, transparent)}
+  .proc-num{font-family:var(--font-mono);font-size:14px;color:var(--muted)}
+  .proc-item h5{margin:0;font-family:var(--font-display);font-weight:400;font-size:22px;letter-spacing:-0.015em}
+  .dur{font-family:var(--font-mono);font-size:10.5px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase}
+  .proc-panel{padding:56px;background:var(--surface);border-bottom:1px solid var(--rule);display:flex;flex-direction:column;justify-content:center;min-height:520px}
+  .proc-panel .step-id{font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;color:var(--accent);text-transform:uppercase}
+  .proc-panel h3{font-family:var(--font-display);font-weight:400;font-size:44px;letter-spacing:-0.025em;margin:12px 0 20px;line-height:1}
+  .proc-panel p{color:var(--ink-2);line-height:1.6;margin:0 0 24px;max-width:420px;font-size:15px}
+  .proc-checks{display:grid;gap:10px;max-width:440px}
+  .proc-check{display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--ink)}
+  .proc-check .ck{width:18px;height:18px;border-radius:50%;border:1px solid var(--accent);display:grid;place-items:center;flex:0 0 auto;color:var(--accent);margin-top:1px}
+  .services-split{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px}
+  .svcc{border:1px solid var(--rule);background:var(--surface);padding:28px}
+  .svcc h3{margin:0 0 10px;font-family:var(--font-display);font-weight:400;font-size:28px;letter-spacing:-0.02em}
+  .svcc h3 em{font-style:italic;color:var(--accent)}
+  .svcc p{color:var(--muted);line-height:1.55;margin:0 0 16px;font-size:14.5px}
+  .svcc ul{list-style:none;padding:0;margin:0}
+  .svcc li{padding:10px 0;border-top:1px dashed var(--rule-soft);font-size:14px;display:flex;gap:10px}
+  .svcc li::before{content:"→";color:var(--accent)}
+  @media (max-width:980px){.proc-wrap{grid-template-columns:1fr}.services-split{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-page="services" data-screen-label="Installation">
+<header id="site-nav">
+<nav class="nav">
+    <div class="container nav-inner">
+      <a class="caliper-logo" href="index.html" aria-label="American Healthcare Technologies — home">
+        <img class="caliper-mark" src="assets/aht_mark.png" alt="AHT mark"/>
+        <span class="logo-words"><b>American <i class="hc">Healthcare</i><br/>Technologies</b><span>Est. 1992 · New York, NY</span></span>
+      </a>
+      <ul class="nav-links" role="menubar">
+        <li><a data-nav="home" href="index.html">Home</a></li>
+        <li>
+          <a class="navtop" href="equipment.html" data-nav="equipment" role="menuitem" aria-haspopup="true">Equipment <span class="caret"></span></a>
+          <div class="dropdown" role="menu">
+            <a href="equipment.html"><span>All equipment</span><span class="dd-sub">Overview</span></a>
+            <a href="equipment-mri.html"><span>MRI systems</span><span class="dd-sub">1.5T · 3T</span></a>
+            <a href="equipment-ct.html"><span>CT scanners</span><span class="dd-sub">16–128 slice</span></a>
+            <a href="equipment-ultrasound.html"><span>Ultrasound</span><span class="dd-sub">GE · Philips · Mindray</span></a>
+            <a href="equipment-xray.html"><span>X-Ray</span><span class="dd-sub">DR · CR · RF</span></a>
+            <a href="equipment-mammography.html"><span>Mammography</span><span class="dd-sub">2D · 3D tomo</span></a>
+            <a href="equipment-carm.html"><span>C-Arms</span><span class="dd-sub">Surgical · mobile</span></a>
+          </div>
+        </li>
+        <li>
+          <a class="navtop" href="service.html" data-nav="services" role="menuitem" aria-haspopup="true">Services <span class="caret"></span></a>
+          <div class="dropdown" role="menu">
+            <a href="service.html"><span>Service & Maintenance</span><span class="dd-sub">24/7 support</span></a>
+            <a href="parts.html"><span>Parts</span><span class="dd-sub">OEM · refurbished</span></a>
+            <a href="installation.html"><span>Installation & De-install</span><span class="dd-sub">Rigging · site-prep</span></a>
+          </div>
+        </li>
+        <li><a data-nav="about" href="about.html">About</a></li>
+        <li><a data-nav="contact" href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="phone-cta" href="tel:+19178565211" aria-label="Call +1-(917)-856-5211">
+          <span class="ring" aria-hidden="true">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+          </span>
+          <span class="pnum">+1-(917)-856-5211</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+<main>
+  <section class="page-head"><div class="container">
+    <div class="crumbs"><a href="index.html">Home</a><span class="sep">/</span><b>Installation & De-installation</b></div>
+    <h1><em>Install</em> & de-install.</h1>
+    <p class="intro">Rigging, site-prep, cryogen and magnet work, room reconstruction, DICOM/PACS integration. A single project manager from first walk-through to first patient scan.</p>
+    <div class="meta"><span>Projects completed <b>300+ <span class="ph">Placeholder</span></b></span><span>Avg. magnet install <b>4 weeks</b></span><span>Permitting support <b>Yes</b></span></div>
+  </div></section>
+
+  <section class="reveal"><div class="container">
+    <div class="section-head">
+      <div><div class="section-num">01 / Process</div><h2 class="sec">The <em>timeline</em>.</h2></div>
+      <p>Click a step to see the detail. Timelines shown are typical MRI installs — CT and other modalities are faster.</p>
+    </div>
+    <div class="proc-wrap">
+      <div class="proc-list" id="proc-list">
+        <div class="proc-item" data-step="0" aria-selected="true"><span class="proc-num">01</span><h5>Site survey</h5><span class="dur">Week 1</span></div>
+        <div class="proc-item" data-step="1"><span class="proc-num">02</span><h5>Drawings & permits</h5><span class="dur">Weeks 1–2</span></div>
+        <div class="proc-item" data-step="2"><span class="proc-num">03</span><h5>Rigging & delivery</h5><span class="dur">Week 3</span></div>
+        <div class="proc-item" data-step="3"><span class="proc-num">04</span><h5>Cryogen & ramp</h5><span class="dur">Week 3–4</span></div>
+        <div class="proc-item" data-step="4"><span class="proc-num">05</span><h5>Calibration & QA</h5><span class="dur">Week 4</span></div>
+        <div class="proc-item" data-step="5"><span class="proc-num">06</span><h5>Applications training</h5><span class="dur">Week 4–5</span></div>
+      </div>
+      <div class="proc-panel" id="proc-panel">
+        <span class="step-id">Step 01 · Week 1</span>
+        <h3>Site survey.</h3>
+        <p>We walk the space with your facilities team — ceiling height, door widths, shielding, power, chiller loop, vent path. You leave the meeting with a go/no-go.</p>
+        <div class="proc-checks">
+          <div class="proc-check"><span class="ck">✓</span>Structural load path verified</div>
+          <div class="proc-check"><span class="ck">✓</span>Cryogen vent route mapped</div>
+          <div class="proc-check"><span class="ck">✓</span>Electrical service and chilled water confirmed</div>
+          <div class="proc-check"><span class="ck">✓</span>Crane / rigging path identified</div>
+        </div>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="reveal"><div class="container">
+    <div class="section-head">
+      <div><div class="section-num">02 / Services</div><h2 class="sec">What we <em>handle</em>.</h2></div>
+      <p>Full-service or any piece of it. Most clients take the whole package; a few prefer to run the GC themselves.</p>
+    </div>
+    <div class="services-split">
+      <div class="svcc">
+        <h3>Installation</h3>
+        <p>New-site, replacement, or relocation. We handle the magnet, the console, and everything in between.</p>
+        <ul>
+          <li>Rigging and crane coordination</li>
+          <li>RF shielded room construction</li>
+          <li>Cryogen delivery, fill and ramp</li>
+          <li>Power, HVAC, chilled-water tie-ins</li>
+          <li>DICOM / PACS / EMR integration</li>
+          <li>Applications training (2–5 days)</li>
+        </ul>
+      </div>
+      <div class="svcc">
+        <h3>De-installation</h3>
+        <p>Responsible decommissioning, removal and disposal — with options to trade-in against your next system.</p>
+        <ul>
+          <li>Cryogen ramp-down and recovery</li>
+          <li>Magnet crate, rig and transport</li>
+          <li>Room restoration to specification</li>
+          <li>Hazmat and lead-shielding disposal</li>
+          <li>Consigned resale option</li>
+          <li>Trade-in credit against next buy</li>
+        </ul>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="reveal"><div class="container">
+    <div class="cta-banner">
+      <div><h3>Site walk-through <em>next week?</em></h3><p>We travel the lower 48. Tell us the address and the week and a PM will be on site.</p></div>
+      <div class="cta-right"><span class="lbl">Project desk</span><a class="big-phone" href="tel:+19178565211">+1-(917)-856-5211</a><a class="btn ghost" style="border-color:rgba(255,255,255,.2);color:#fff" href="contact.html">Send floor plan →</a></div>
+    </div>
+  </div></section>
+</main>
+<footer id="site-footer">
+<div class="container">
+    <div class="foot-big">American <em>Healthcare</em> Technologies</div>
+    <div class="foot-grid">
+      <div class="foot-col foot-brand">
+        <a class="caliper-logo" href="index.html">
+          <img class="caliper-mark" src="assets/aht_mark.png" alt=""/>
+          <span class="logo-words"><b>American <i class="hc">Healthcare</i><br/>Technologies</b><span>Est. 1992 · New York, NY</span></span>
+        </a>
+        <p>Pre-owned and refurbished medical imaging equipment, service, parts and installation — supporting imaging facilities across North America.</p>
+      </div>
+      <div class="foot-col">
+        <h6>Equipment</h6>
+        <a href="equipment-mri.html">MRI systems</a>
+        <a href="equipment-ct.html">CT scanners</a>
+        <a href="equipment-ultrasound.html">Ultrasound</a>
+        <a href="equipment-xray.html">X-Ray</a>
+        <a href="equipment-mammography.html">Mammography</a>
+        <a href="equipment-carm.html">C-Arms</a>
+      </div>
+      <div class="foot-col">
+        <h6>Services</h6>
+        <a href="service.html">Service & Maintenance</a>
+        <a href="parts.html">Parts</a>
+        <a href="installation.html">Installation & De-install</a>
+        <a href="about.html">About us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="foot-col">
+        <h6>Contact</h6>
+        <div class="foot-contact">
+          <a href="tel:+19178565211">+1-(917)-856-5211</a><br/>
+          <a href="mailto:info@ahtiny.com">info@ahtiny.com</a>
+          <b>Hours</b>
+          Mon–Fri · 8:00–18:00 ET<br/>
+          Sat · On-call<br/>
+          24/7 emergency service
+          <b>Address <span class="ph">Placeholder</span></b>
+          [Placeholder street]<br/>
+          [Placeholder city, state ZIP]
+          <b>Social</b>
+          <a href="#" aria-label="LinkedIn">LinkedIn →</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span data-year></span> American Healthcare Technologies, Inc.</span>
+      <span>All rights reserved</span>
+    </div>
+  </div>
+</footer>
+<script src="js/shared.js?v=1776659983034"></script>
+<script src="js/scroll-fx.js?v=1776659983034"></script>
+<script>
+  const STEPS = [
+    ['01 · Week 1','Site survey.','We walk the space with your facilities team — ceiling height, door widths, shielding, power, chiller loop, vent path. You leave the meeting with a go/no-go.',['Structural load path verified','Cryogen vent route mapped','Electrical service and chilled water confirmed','Crane / rigging path identified']],
+    ['02 · Weeks 1–2','Drawings & permits.','Civil, structural, and MEP drawings stamped and submitted. Our team handles the AHJ conversations so your GC isn\'t sitting on the permit desk.',['Architectural & MEP drawings','RF-shielding design','Local permitting','Utility tie-in coordination']],
+    ['03 · Week 3','Rigging & delivery.','Magnet, gradient cabinet, chillers land on site. Crane rigging, roof-crate if needed, protected path to the bore room.',['Crane and rigging crew','Building protection and flooring','Magnet to room — same day','De-crate and first power']],
+    ['04 · Week 3–4','Cryogen fill & ramp.','Helium delivery, magnet fill, controlled ramp to field. Quench pipe pressure-tested before we ramp.',['Quench pipe certification','Helium fill','Ramp to field','Shim to spec']],
+    ['05 · Week 4','Calibration & QA.','RF calibration, gradient QA, image quality phantoms, and ACR-style baseline acquired. All results in your documentation package.',['RF & gradient calibration','ACR phantom QA','DICOM routing verified','Baseline image set archived']],
+    ['06 · Week 4–5','Applications training.','Two-to-five days of on-site applications training with your techs — in their workflow, on their protocols.',['Tech-led protocols','Radiologist reading session','Workflow-specific presets','Post-install service handoff']]
+  ];
+  const list = document.getElementById('proc-list');
+  const panel = document.getElementById('proc-panel');
+  list.addEventListener('click', e=>{
+    const item = e.target.closest('.proc-item');
+    if(!item) return;
+    list.querySelectorAll('.proc-item').forEach(i=>i.setAttribute('aria-selected','false'));
+    item.setAttribute('aria-selected','true');
+    const i = +item.dataset.step;
+    const [id,title,desc,checks] = STEPS[i];
+    panel.innerHTML = `<span class="step-id">Step ${id}</span><h3>${title}</h3><p>${desc}</p><div class="proc-checks">${checks.map(c=>`<div class="proc-check"><span class="ck">✓</span>${c}</div>`).join('')}</div>`;
+  });
+</script>
+</body></html>

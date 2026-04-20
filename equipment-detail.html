@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Siemens MAGNETOM Aera 1.5T — AHT</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/shared.css?v=1776659983034"/>
+<link rel="stylesheet" href="css/scroll-fx.css?v=1776659983034"/>
+<style>
+  .detail{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:start;margin-top:24px}
+  .gallery{border:1px solid var(--rule);background:var(--surface);aspect-ratio:4/3;position:relative;display:grid;place-items:center;color:var(--muted)}
+  .gallery .ph{position:absolute;top:12px;right:12px}
+  .gallery svg{width:50%;height:50%;opacity:.25}
+  .thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
+  .thumbs .t{aspect-ratio:1;border:1px solid var(--rule);background:var(--surface);display:grid;place-items:center;color:var(--muted);font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:border-color .15s}
+  .thumbs .t:hover, .thumbs .t.on{border-color:var(--ink)}
+  .meta-strip{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--rule);margin-top:18px;background:var(--surface)}
+  .meta-strip > div{padding:18px;border-right:1px solid var(--rule)}
+  .meta-strip > div:last-child{border-right:0}
+  .meta-strip .k{font-family:var(--font-mono);font-size:10px;letter-spacing:0.14em;color:var(--muted);text-transform:uppercase}
+  .meta-strip .v{font-family:var(--font-display);font-weight:400;font-size:22px;letter-spacing:-0.02em;margin-top:6px}
+  .docs{margin-top:40px;border-top:1px solid var(--ink);padding-top:32px}
+  .docs h3{font-family:var(--font-display);font-weight:400;font-size:28px;letter-spacing:-0.02em;margin:0 0 20px}
+  .doc-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .doc{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border:1px solid var(--rule);background:var(--surface);font-family:var(--font-mono);font-size:12.5px;color:var(--ink);transition:background .15s}
+  .doc:hover{background:var(--surface-2)}
+  .doc .d-meta{color:var(--muted);font-size:11px}
+  @media (max-width:980px){.detail{grid-template-columns:1fr}.meta-strip{grid-template-columns:1fr 1fr}.doc-list{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-page="equipment" data-screen-label="Equipment / MRI / Detail">
+<header id="site-nav">
+<nav class="nav">
+    <div class="container nav-inner">
+      <a class="caliper-logo" href="index.html" aria-label="American Healthcare Technologies — home">
+        <img class="caliper-mark" src="assets/aht_mark.png" alt="AHT mark"/>
+        <span class="logo-words"><b>American <i class="hc">Healthcare</i><br/>Technologies</b><span>Est. 1992 · New York, NY</span></span>
+      </a>
+      <ul class="nav-links" role="menubar">
+        <li><a data-nav="home" href="index.html">Home</a></li>
+        <li>
+          <a class="navtop" href="equipment.html" data-nav="equipment" role="menuitem" aria-haspopup="true">Equipment <span class="caret"></span></a>
+          <div class="dropdown" role="menu">
+            <a href="equipment.html"><span>All equipment</span><span class="dd-sub">Overview</span></a>
+            <a href="equipment-mri.html"><span>MRI systems</span><span class="dd-sub">1.5T · 3T</span></a>
+            <a href="equipment-ct.html"><span>CT scanners</span><span class="dd-sub">16–128 slice</span></a>
+            <a href="equipment-ultrasound.html"><span>Ultrasound</span><span class="dd-sub">GE · Philips · Mindray</span></a>
+            <a href="equipment-xray.html"><span>X-Ray</span><span class="dd-sub">DR · CR · RF</span></a>
+            <a href="equipment-mammography.html"><span>Mammography</span><span class="dd-sub">2D · 3D tomo</span></a>
+            <a href="equipment-carm.html"><span>C-Arms</span><span class="dd-sub">Surgical · mobile</span></a>
+          </div>
+        </li>
+        <li>
+          <a class="navtop" href="service.html" data-nav="services" role="menuitem" aria-haspopup="true">Services <span class="caret"></span></a>
+          <div class="dropdown" role="menu">
+            <a href="service.html"><span>Service & Maintenance</span><span class="dd-sub">24/7 support</span></a>
+            <a href="parts.html"><span>Parts</span><span class="dd-sub">OEM · refurbished</span></a>
+            <a href="installation.html"><span>Installation & De-install</span><span class="dd-sub">Rigging · site-prep</span></a>
+          </div>
+        </li>
+        <li><a data-nav="about" href="about.html">About</a></li>
+        <li><a data-nav="contact" href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="phone-cta" href="tel:+19178565211" aria-label="Call +1-(917)-856-5211">
+          <span class="ring" aria-hidden="true">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+          </span>
+          <span class="pnum">+1-(917)-856-5211</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+<main>
+  <section class="page-head"><div class="container">
+    <div class="crumbs"><a href="index.html">Home</a><span class="sep">/</span><a href="equipment.html">Equipment</a><span class="sep">/</span><a href="equipment-mri.html">MRI</a><span class="sep">/</span><b>MAGNETOM Aera 1.5T</b></div>
+    <h1>Siemens <em>MAGNETOM Aera</em> 1.5T.</h1>
+    <p class="intro"><span class="ph">Placeholder listing</span> · Year 2016 · 4,800 runtime hours · Zero boil-off · Tim 4G coil architecture · Last full PM completed [date].</p>
+  </div></section>
+
+  <section><div class="container">
+    <div class="detail">
+      <div>
+        <div class="gallery"><span class="ph">image</span>
+          <svg viewBox="0 0 120 80" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="14" width="104" height="52" rx="10"/><circle cx="60" cy="40" r="16"/><circle cx="60" cy="40" r="6"/></svg>
+        </div>
+        <div class="thumbs">
+          <div class="t on">Front</div><div class="t">Gantry</div><div class="t">Console</div><div class="t">Plate</div>
+        </div>
+        <div class="meta-strip">
+          <div><div class="k">Field</div><div class="v">1.5T</div></div>
+          <div><div class="k">Coils</div><div class="v">Tim 4G</div></div>
+          <div><div class="k">Bore</div><div class="v">70cm</div></div>
+          <div><div class="k">Runtime</div><div class="v">4,800h</div></div>
+        </div>
+
+        <div class="docs">
+          <h3>Documentation package</h3>
+          <div class="doc-list">
+            <a class="doc"><span>PM History (12 months)</span><span class="d-meta">PDF · 2.3 MB</span></a>
+            <a class="doc"><span>Cryogen log</span><span class="d-meta">PDF · 480 KB</span></a>
+            <a class="doc"><span>Gradient test report</span><span class="d-meta">PDF · 1.1 MB</span></a>
+            <a class="doc"><span>Install footprint drawing</span><span class="d-meta">DWG · 620 KB</span></a>
+            <a class="doc"><span>Coil inventory</span><span class="d-meta">XLSX · 80 KB</span></a>
+            <a class="doc"><span>Photos — high-res set</span><span class="d-meta">ZIP · 24 MB</span></a>
+          </div>
+          <p style="color:var(--muted);font-size:13px;margin-top:14px"><span class="ph">Placeholder</span> — these are standard documents we provide on request for every system. NDA required.</p>
+        </div>
+      </div>
+
+      <aside>
+        <div class="spec-sheet">
+          <h4>Spec sheet · AHT-MR-2016-AERA-14</h4>
+          <div class="spec-row"><span class="k">Manufacturer</span><span class="v">Siemens Healthineers</span></div>
+          <div class="spec-row"><span class="k">Model</span><span class="v">MAGNETOM Aera</span></div>
+          <div class="spec-row"><span class="k">Year of mfg</span><span class="v">2016</span></div>
+          <div class="spec-row"><span class="k">Field strength</span><span class="v">1.5T</span></div>
+          <div class="spec-row"><span class="k">Bore size</span><span class="v">70cm</span></div>
+          <div class="spec-row"><span class="k">Magnet type</span><span class="v">Zero boil-off</span></div>
+          <div class="spec-row"><span class="k">Gradient amp.</span><span class="v">XQ engine</span></div>
+          <div class="spec-row"><span class="k">Coil platform</span><span class="v">Tim 4G</span></div>
+          <div class="spec-row"><span class="k">Software</span><span class="v">syngo MR E11</span></div>
+          <div class="spec-row"><span class="k">Runtime</span><span class="v">4,800h</span></div>
+          <div class="spec-row"><span class="k">Condition</span><span class="v ok">Refurbished · ready</span></div>
+          <div class="spec-row"><span class="k">Warranty</span><span class="v">90-day std.</span></div>
+          <div class="spec-foot"><span>Updated [date]</span><span>AHT-MR-2016-AERA-14</span></div>
+        </div>
+
+        <div style="margin-top:24px;padding:24px;border:1px solid var(--ink);background:var(--surface)">
+          <div style="font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.14em;color:var(--muted);text-transform:uppercase;margin-bottom:10px">Interested?</div>
+          <div style="font-family:var(--font-display);font-size:22px;letter-spacing:-0.02em;margin-bottom:16px;line-height:1.2">Price on request. <br/>Typical lead time 4–6 weeks.</div>
+          <a class="phone-cta" style="width:100%;justify-content:center" href="tel:+19178565211"><span class="ring"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg></span>Call +1-(917)-856-5211</a>
+          <a class="btn ghost" style="width:100%;justify-content:center;margin-top:10px" href="contact.html">Send inquiry →</a>
+        </div>
+      </aside>
+    </div>
+  </div></section>
+</main>
+<footer id="site-footer">
+<div class="container">
+    <div class="foot-big">American <em>Healthcare</em> Technologies</div>
+    <div class="foot-grid">
+      <div class="foot-col foot-brand">
+        <a class="caliper-logo" href="index.html">
+          <img class="caliper-mark" src="assets/aht_mark.png" alt=""/>
+          <span class="logo-words"><b>American <i class="hc">Healthcare</i><br/>Technologies</b><span>Est. 1992 · New York, NY</span></span>
+        </a>
+        <p>Pre-owned and refurbished medical imaging equipment, service, parts and installation — supporting imaging facilities across North America.</p>
+      </div>
+      <div class="foot-col">
+        <h6>Equipment</h6>
+        <a href="equipment-mri.html">MRI systems</a>
+        <a href="equipment-ct.html">CT scanners</a>
+        <a href="equipment-ultrasound.html">Ultrasound</a>
+        <a href="equipment-xray.html">X-Ray</a>
+        <a href="equipment-mammography.html">Mammography</a>
+        <a href="equipment-carm.html">C-Arms</a>
+      </div>
+      <div class="foot-col">
+        <h6>Services</h6>
+        <a href="service.html">Service & Maintenance</a>
+        <a href="parts.html">Parts</a>
+        <a href="installation.html">Installation & De-install</a>
+        <a href="about.html">About us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="foot-col">
+        <h6>Contact</h6>
+        <div class="foot-contact">
+          <a href="tel:+19178565211">+1-(917)-856-5211</a><br/>
+          <a href="mailto:info@ahtiny.com">info@ahtiny.com</a>
+          <b>Hours</b>
+          Mon–Fri · 8:00–18:00 ET<br/>
+          Sat · On-call<br/>
+          24/7 emergency service
+          <b>Address <span class="ph">Placeholder</span></b>
+          [Placeholder street]<br/>
+          [Placeholder city, state ZIP]
+          <b>Social</b>
+          <a href="#" aria-label="LinkedIn">LinkedIn →</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span data-year></span> American Healthcare Technologies, Inc.</span>
+      <span>All rights reserved</span>
+    </div>
+  </div>
+</footer>
+<script src="js/shared.js?v=1776659983034"></script>
+<script src="js/scroll-fx.js?v=1776659983034"></script>
+</body></html>

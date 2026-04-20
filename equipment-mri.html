@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>MRI Systems — AHT</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/shared.css?v=1776659983034"/>
+<link rel="stylesheet" href="css/scroll-fx.css?v=1776659983034"/>
+<style>
+  .listing{display:grid;grid-template-columns:260px 1fr;gap:40px;align-items:start}
+  .filters{position:sticky;top:112px;border:1px solid var(--rule);background:var(--surface);padding:20px}
+  .filters h6{font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.14em;color:var(--muted);text-transform:uppercase;margin:0 0 12px;padding-bottom:10px;border-bottom:1px solid var(--rule-soft)}
+  .filters h6:not(:first-child){margin-top:20px}
+  .filters label{display:flex;align-items:center;gap:8px;padding:6px 0;font-size:13.5px;color:var(--ink-2);cursor:pointer}
+  .filters label input{accent-color:var(--accent)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .unit{
+    border:1px solid var(--rule);background:var(--surface);padding:22px;display:flex;flex-direction:column;gap:14px;
+    transition:background .18s,border-color .18s,transform .18s;position:relative;
+  }
+  .unit:hover{background:var(--surface-2);border-color:var(--ink);transform:translateY(-2px)}
+  .unit .u-thumb{aspect-ratio:16/10;border:1px solid var(--rule-soft);background:var(--bg-2);position:relative;display:grid;place-items:center;color:var(--muted)}
+  .unit .u-thumb .ph{position:absolute;top:8px;right:8px}
+  .unit .u-thumb svg{width:60%;height:60%;opacity:.35}
+  .unit .u-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+  .unit .u-head .brand{font-family:var(--font-mono);font-size:10px;color:var(--muted);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:4px}
+  .unit .u-head h4{margin:0;font-family:var(--font-display);font-weight:500;font-size:20px;letter-spacing:-0.015em;line-height:1.1}
+  .badge{font-family:var(--font-mono);font-size:9.5px;padding:3px 8px;letter-spacing:0.08em;text-transform:uppercase;border:1px solid var(--accent);color:var(--accent)}
+  .badge.gray{border-color:var(--rule);color:var(--muted)}
+  .u-spec{display:grid;grid-template-columns:1fr 1fr;gap:6px;font-family:var(--font-mono);font-size:11px;color:var(--muted);padding:10px 0;border-top:1px dashed var(--rule-soft);border-bottom:1px dashed var(--rule-soft)}
+  .u-spec b{color:var(--ink);font-weight:500;display:block}
+  .u-foot{display:flex;justify-content:space-between;align-items:center}
+  .u-foot .go{font-family:var(--font-mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);display:inline-flex;gap:6px;transition:gap .15s}
+  .unit:hover .u-foot .go{gap:10px}
+  @media (max-width:980px){.listing{grid-template-columns:1fr}.filters{position:static}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-page="equipment" data-screen-label="Equipment / MRI">
+<header id="site-nav">
+<nav class="nav">
+    <div class="container nav-inner">
+      <a class="caliper-logo" href="index.html" aria-label="American Healthcare Technologies — home">
+        <img class="caliper-mark" src="assets/aht_mark.png" alt="AHT mark"/>
+        <span class="logo-words"><b>American <i class="hc">Healthcare</i><br/>Technologies</b><span>Est. 1992 · New York, NY</span></span>
+      </a>
+      <ul class="nav-links" role="menubar">
+        <li><a data-nav="home" href="index.html">Home</a></li>
+        <li>
+          <a class="navtop" href="equipment.html" data-nav="equipment" role="menuitem" aria-haspopup="true">Equipment <span class="caret"></span></a>
+          <div class="dropdown" role="menu">
+            <a href="equipment.html"><span>All equipment</span><span class="dd-sub">Overview</span></a>
+            <a href="equipment-mri.html"><span>MRI systems</span><span class="dd-sub">1.5T · 3T</span></a>
+            <a href="equipment-ct.html"><span>CT scanners</span><span class="dd-sub">16–128 slice</span></a>
+            <a href="equipment-ultrasound.html"><span>Ultrasound</span><span class="dd-sub">GE · Philips · Mindray</span></a>
+            <a href="equipment-xray.html"><span>X-Ray</span><span class="dd-sub">DR · CR · RF</span></a>
+            <a href="equipment-mammography.html"><span>Mammography</span><span class="dd-sub">2D · 3D tomo</span></a>
+            <a href="equipment-carm.html"><span>C-Arms</span><span class="dd-sub">Surgical · mobile</span></a>
+          </div>
+        </li>
+        <li>
+          <a class="navtop" href="service.html" data-nav="services" role="menuitem" aria-haspopup="true">Services <span class="caret"></span></a>
+          <div class="dropdown" role="menu">
+            <a href="service.html"><span>Service & Maintenance</span><span class="dd-sub">24/7 support</span></a>
+            <a href="parts.html"><span>Parts</span><span class="dd-sub">OEM · refurbished</span></a>
+            <a href="installation.html"><span>Installation & De-install</span><span class="dd-sub">Rigging · site-prep</span></a>
+          </div>
+        </li>
+        <li><a data-nav="about" href="about.html">About</a></li>
+        <li><a data-nav="contact" href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="phone-cta" href="tel:+19178565211" aria-label="Call +1-(917)-856-5211">
+          <span class="ring" aria-hidden="true">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+          </span>
+          <span class="pnum">+1-(917)-856-5211</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+<main>
+  <section class="page-head"><div class="container">
+    <div class="crumbs"><a href="index.html">Home</a><span class="sep">/</span><a href="equipment.html">Equipment</a><span class="sep">/</span><b>MRI</b></div>
+    <h1><em>MRI</em> systems.</h1>
+    <p class="intro">Whole-body 1.5T and 3T magnets — refurbished, recoiled, pressure-tested. Cryogen and gradient history on every unit. <span class="ph">Placeholder inventory</span> below; call for current availability.</p>
+    <div class="meta"><span>In stock <b>12</b></span><span>Brands <b>GE · Siemens · Philips · Hitachi</b></span><span>Field strength <b>1.5T, 3T</b></span></div>
+  </div></section>
+
+  <section><div class="container">
+    <div class="listing">
+      <aside class="filters" aria-label="Filters">
+        <h6>Field strength</h6>
+        <label><input type="checkbox" checked/> 1.5T</label>
+        <label><input type="checkbox" checked/> 3T</label>
+        <h6>Manufacturer</h6>
+        <label><input type="checkbox" checked/> GE</label>
+        <label><input type="checkbox" checked/> Siemens</label>
+        <label><input type="checkbox" checked/> Philips</label>
+        <label><input type="checkbox" checked/> Hitachi</label>
+        <h6>Condition</h6>
+        <label><input type="checkbox" checked/> Refurbished</label>
+        <label><input type="checkbox"/> Parted-out</label>
+        <h6>Availability</h6>
+        <label><input type="checkbox" checked/> In stock</label>
+        <label><input type="checkbox"/> Incoming</label>
+      </aside>
+      <div class="grid">
+        <a class="unit" href="equipment-detail.html">
+          <div class="u-thumb"><span class="ph">image</span>
+            <svg viewBox="0 0 120 80" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="14" width="104" height="52" rx="10"/><circle cx="60" cy="40" r="16"/><circle cx="60" cy="40" r="6"/></svg>
+          </div>
+          <div class="u-head"><div><div class="brand">GE Healthcare</div><h4>Signa HDxt 1.5T</h4></div><span class="badge">In stock</span></div>
+          <div class="u-spec"><span><b>2014</b>Year</span><span><b>16ch</b>Coils</span><span><b>6,200h</b>Runtime</span><span><b>0.6L/mo</b>He boil-off</span></div>
+          <div class="u-foot"><span class="ph">Price on request</span><span class="go">Details →</span></div>
+        </a>
+        <a class="unit" href="equipment-detail.html">
+          <div class="u-thumb"><span class="ph">image</span>
+            <svg viewBox="0 0 120 80" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="14" width="104" height="52" rx="10"/><circle cx="60" cy="40" r="16"/><circle cx="60" cy="40" r="6"/></svg>
+          </div>
+          <div class="u-head"><div><div class="brand">Siemens</div><h4>MAGNETOM Aera 1.5T</h4></div><span class="badge">In stock</span></div>
+          <div class="u-spec"><span><b>2016</b>Year</span><span><b>Tim 4G</b>Coils</span><span><b>4,800h</b>Runtime</span><span><b>Zero</b>Boil-off</span></div>
+          <div class="u-foot"><span class="ph">Price on request</span><span class="go">Details →</span></div>
+        </a>
+        <a class="unit" href="equipment-detail.html">
+          <div class="u-thumb"><span class="ph">image</span>
+            <svg viewBox="0 0 120 80" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="14" width="104" height="52" rx="10"/><circle cx="60" cy="40" r="16"/><circle cx="60" cy="40" r="6"/></svg>
+          </div>
+          <div class="u-head"><div><div class="brand">Siemens</div><h4>MAGNETOM Skyra 3T</h4></div><span class="badge">Incoming</span></div>
+          <div class="u-spec"><span><b>2015</b>Year</span><span><b>Tim 4G</b>Coils</span><span><b>5,400h</b>Runtime</span><span><b>Zero</b>Boil-off</span></div>
+          <div class="u-foot"><span class="ph">Price on request</span><span class="go">Details →</span></div>
+        </a>
+        <a class="unit" href="equipment-detail.html">
+          <div class="u-thumb"><span class="ph">image</span>
+            <svg viewBox="0 0 120 80" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="14" width="104" height="52" rx="10"/><circle cx="60" cy="40" r="16"/><circle cx="60" cy="40" r="6"/></svg>
+          </div>
+          <div class="u-head"><div><div class="brand">Philips</div><h4>Achieva 1.5T</h4></div><span class="badge gray">Parted</span></div>
+          <div class="u-spec"><span><b>2012</b>Year</span><span><b>SENSE</b>Coils</span><span><b>—</b>Runtime</span><span><b>—</b>Boil-off</span></div>
+          <div class="u-foot"><span>Parts only</span><span class="go">Details →</span></div>
+        </a>
+        <a class="unit" href="equipment-detail.html">
+          <div class="u-thumb"><span class="ph">image</span>
+            <svg viewBox="0 0 120 80" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="14" width="104" height="52" rx="10"/><circle cx="60" cy="40" r="16"/><circle cx="60" cy="40" r="6"/></svg>
+          </div>
+          <div class="u-head"><div><div class="brand">Hitachi</div><h4>Oasis 1.2T open</h4></div><span class="badge">In stock</span></div>
+          <div class="u-spec"><span><b>2015</b>Year</span><span><b>Open</b>Bore</span><span><b>3,900h</b>Runtime</span><span><b>0.4L/mo</b>Boil-off</span></div>
+          <div class="u-foot"><span class="ph">Price on request</span><span class="go">Details →</span></div>
+        </a>
+        <a class="unit" href="equipment-detail.html">
+          <div class="u-thumb"><span class="ph">image</span>
+            <svg viewBox="0 0 120 80" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="14" width="104" height="52" rx="10"/><circle cx="60" cy="40" r="16"/><circle cx="60" cy="40" r="6"/></svg>
+          </div>
+          <div class="u-head"><div><div class="brand">GE Healthcare</div><h4>Discovery MR750 3T</h4></div><span class="badge">In stock</span></div>
+          <div class="u-spec"><span><b>2017</b>Year</span><span><b>32ch</b>Coils</span><span><b>7,100h</b>Runtime</span><span><b>0.5L/mo</b>Boil-off</span></div>
+          <div class="u-foot"><span class="ph">Price on request</span><span class="go">Details →</span></div>
+        </a>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="reveal"><div class="container">
+    <div class="cta-banner">
+      <div><h3>Looking for a specific <em>MRI</em>?</h3><p>Tell us make, model, and your ceiling height — we'll either pull one from stock or source it from our network.</p></div>
+      <div class="cta-right"><span class="lbl">MRI Desk</span><a class="big-phone" href="tel:+19178565211">+1-(917)-856-5211</a><a class="btn ghost" style="border-color:rgba(255,255,255,.2);color:#fff" href="contact.html">Send specs →</a></div>
+    </div>
+  </div></section>
+</main>
+<footer id="site-footer">
+<div class="container">
+    <div class="foot-big">American <em>Healthcare</em> Technologies</div>
+    <div class="foot-grid">
+      <div class="foot-col foot-brand">
+        <a class="caliper-logo" href="index.html">
+          <img class="caliper-mark" src="assets/aht_mark.png" alt=""/>
+          <span class="logo-words"><b>American <i class="hc">Healthcare</i><br/>Technologies</b><span>Est. 1992 · New York, NY</span></span>
+        </a>
+        <p>Pre-owned and refurbished medical imaging equipment, service, parts and installation — supporting imaging facilities across North America.</p>
+      </div>
+      <div class="foot-col">
+        <h6>Equipment</h6>
+        <a href="equipment-mri.html">MRI systems</a>
+        <a href="equipment-ct.html">CT scanners</a>
+        <a href="equipment-ultrasound.html">Ultrasound</a>
+        <a href="equipment-xray.html">X-Ray</a>
+        <a href="equipment-mammography.html">Mammography</a>
+        <a href="equipment-carm.html">C-Arms</a>
+      </div>
+      <div class="foot-col">
+        <h6>Services</h6>
+        <a href="service.html">Service & Maintenance</a>
+        <a href="parts.html">Parts</a>
+        <a href="installation.html">Installation & De-install</a>
+        <a href="about.html">About us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="foot-col">
+        <h6>Contact</h6>
+        <div class="foot-contact">
+          <a href="tel:+19178565211">+1-(917)-856-5211</a><br/>
+          <a href="mailto:info@ahtiny.com">info@ahtiny.com</a>
+          <b>Hours</b>
+          Mon–Fri · 8:00–18:00 ET<br/>
+          Sat · On-call<br/>
+          24/7 emergency service
+          <b>Address <span class="ph">Placeholder</span></b>
+          [Placeholder street]<br/>
+          [Placeholder city, state ZIP]
+          <b>Social</b>
+          <a href="#" aria-label="LinkedIn">LinkedIn →</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span data-year></span> American Healthcare Technologies, Inc.</span>
+      <span>All rights reserved</span>
+    </div>
+  </div>
+</footer>
+<script src="js/shared.js?v=1776659983034"></script>
+<script src="js/scroll-fx.js?v=1776659983034"></script>
+</body></html>
