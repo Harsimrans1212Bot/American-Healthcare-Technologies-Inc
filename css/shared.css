@@ -39,20 +39,22 @@ body::before{
     radial-gradient(circle at 85% 75%, rgba(90,80,60,0.04) 0, transparent 55%);
 }
 
-/* ---------- LOGO ---------- */
-.caliper-logo{display:flex;align-items:center;gap:14px;font-family:var(--font-display);font-weight:500;letter-spacing:-0.01em;color:var(--ink)}
+/* ---------- LOGO (AHT lockup snippet) ---------- */
+.caliper-logo{display:flex;align-items:center;gap:14px;font-family:var(--font-body);font-weight:700;letter-spacing:.02em;color:var(--ink);text-decoration:none}
 .caliper-mark{
   width:44px;height:44px;flex:0 0 auto;display:block;object-fit:contain;
   transition:transform .4s cubic-bezier(.2,.9,.2,1);
 }
 .caliper-logo:hover .caliper-mark{transform:rotate(-6deg)}
-.logo-words{display:flex;flex-direction:column;line-height:1;white-space:nowrap}
-.logo-words b{font-size:20px;font-weight:500;letter-spacing:-0.02em;color:var(--brand-blue);white-space:nowrap}
-.logo-words b .hc{font-style:normal;color:var(--brand-red)}
-.logo-words span{font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.18em;color:var(--muted);text-transform:uppercase;margin-top:5px;white-space:nowrap}
-.nav .caliper-mark{width:54px;height:54px}
-.nav .logo-words b{font-size:18px}
-footer .caliper-mark{width:64px;height:64px}
+.logo-words{display:flex;flex-direction:column;line-height:1.15;white-space:nowrap}
+.logo-words b{font-family:var(--font-body);font-size:14px;font-weight:700;letter-spacing:.02em;line-height:1.15;color:var(--brand-blue);text-transform:uppercase;white-space:nowrap}
+.logo-words b .hc{font-style:normal;color:#E0331F}
+.logo-words span{font-family:var(--font-body);font-size:9.5px;font-weight:500;letter-spacing:0.18em;color:var(--muted);text-transform:uppercase;margin-top:6px;white-space:nowrap}
+.nav .caliper-mark{width:44px;height:44px}
+.nav .logo-words b{font-size:13px}
+.nav .logo-words span{font-size:9px;letter-spacing:.16em;margin-top:4px}
+footer .caliper-mark{width:56px;height:56px}
+footer .logo-words b{font-size:15px}
 
 /* ---------- NAV ---------- */
 .nav{

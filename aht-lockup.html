@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AHT lockup — reusable snippet</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ==========================================================
+     AHT LOCKUP SNIPPET
+     Blue mark + stacked "AMERICAN HEALTHCARE TECHNOLOGIES, INC."
+     with "HEALTHCARE" in red. Optional subline below.
+     Copy the CSS block + the .aht-lockup markup into any page.
+     ========================================================== */
+
+  :root{
+    --aht-ink:#0b1220;
+    --aht-ink-2:#5a6476;
+    --aht-red:#E0331F;      /* matches logo accent red */
+  }
+  body{
+    margin:0; padding:60px 40px;
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    background:#f6f7f9;
+    color:var(--aht-ink);
+  }
+
+  /* ---- snippet starts ---- */
+  .aht-lockup{
+    display:inline-flex;
+    align-items:center;
+    gap:14px;
+    text-decoration:none;
+    color:var(--aht-ink);
+    font-family:'Inter',system-ui,sans-serif;
+  }
+  .aht-lockup img{
+    width:56px; height:56px;
+    display:block;
+    flex:0 0 auto;
+  }
+  .aht-lockup .words{line-height:1.15}
+  .aht-lockup .name{
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:.02em;
+    text-transform:uppercase;
+    line-height:1.15;
+  }
+  .aht-lockup .name .red{ color:var(--aht-red) }
+  .aht-lockup .sub{
+    font-size:11px;
+    color:var(--aht-ink-2);
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    margin-top:6px;
+    font-weight:500;
+  }
+  /* Size variants */
+  .aht-lockup.sm img{width:40px; height:40px}
+  .aht-lockup.sm .name{font-size:11.5px}
+  .aht-lockup.sm .sub{font-size:9.5px; margin-top:4px}
+
+  .aht-lockup.lg img{width:72px; height:72px}
+  .aht-lockup.lg .name{font-size:17px}
+  .aht-lockup.lg .sub{font-size:12px; margin-top:7px}
+  /* ---- snippet ends ---- */
+
+
+  /* --- preview page chrome (not part of snippet) --- */
+  .row{display:flex; gap:48px; align-items:center; flex-wrap:wrap; padding:24px 0; border-bottom:1px solid #e5e8ee}
+  .row:last-child{border-bottom:none}
+  .row .lbl{width:120px; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#5a6476; font-weight:600}
+  h1{font-size:22px; margin:0 0 8px; letter-spacing:-.01em}
+  p{margin:0 0 32px; color:#5a6476; max-width:60ch; font-size:14px}
+  .onblue{background:#0f2d73; padding:40px 32px; border-radius:10px}
+  .onblue .aht-lockup{color:#fff}
+  .onblue .aht-lockup .sub{color:rgba(255,255,255,.65)}
+  pre{background:#0b1220; color:#e5e8ee; padding:18px 20px; border-radius:8px; font-size:12.5px; overflow:auto; line-height:1.5}
+</style>
+</head>
+<body>
+
+<h1>AHT lockup — reusable snippet</h1>
+<p>The exact top-left lockup you liked. Blue mark on the left; stacked wordmark on the right with <b>HEALTHCARE</b> in red. Three size variants and a subline slot. Copy the CSS block marked <code>snippet starts / ends</code> plus any <code>.aht-lockup</code> markup below.</p>
+
+<div class="row">
+  <div class="lbl">Default</div>
+  <a class="aht-lockup" href="#">
+    <img src="assets/aht_mark.png" alt="AHT">
+    <div class="words">
+      <div class="name">American <span class="red">Healthcare</span><br>Technologies, Inc.</div>
+    </div>
+  </a>
+</div>
+
+<div class="row">
+  <div class="lbl">With subline</div>
+  <a class="aht-lockup" href="#">
+    <img src="assets/aht_mark.png" alt="AHT">
+    <div class="words">
+      <div class="name">American <span class="red">Healthcare</span><br>Technologies, Inc.</div>
+      <div class="sub">Homepage redesign · Round 2</div>
+    </div>
+  </a>
+</div>
+
+<div class="row">
+  <div class="lbl">Small (nav)</div>
+  <a class="aht-lockup sm" href="#">
+    <img src="assets/aht_mark.png" alt="AHT">
+    <div class="words">
+      <div class="name">American <span class="red">Healthcare</span><br>Technologies, Inc.</div>
+      <div class="sub">Est. 1992 · New York, NY</div>
+    </div>
+  </a>
+</div>
+
+<div class="row">
+  <div class="lbl">Large (hero)</div>
+  <a class="aht-lockup lg" href="#">
+    <img src="assets/aht_mark.png" alt="AHT">
+    <div class="words">
+      <div class="name">American <span class="red">Healthcare</span><br>Technologies, Inc.</div>
+      <div class="sub">Imaging equipment since 1992</div>
+    </div>
+  </a>
+</div>
+
+<div class="row">
+  <div class="lbl">On dark bg</div>
+  <div class="onblue">
+    <a class="aht-lockup" href="#">
+      <img src="assets/aht_mark.png" alt="AHT">
+      <div class="words">
+        <div class="name">American <span class="red">Healthcare</span><br>Technologies, Inc.</div>
+        <div class="sub">Sales · Service · Parts</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<h1 style="margin-top:48px">Copy-paste markup</h1>
+<pre>&lt;a class="aht-lockup" href="index.html"&gt;
+  &lt;img src="assets/aht_mark.png" alt="AHT"&gt;
+  &lt;div class="words"&gt;
+    &lt;div class="name"&gt;American &lt;span class="red"&gt;Healthcare&lt;/span&gt;&lt;br&gt;Technologies, Inc.&lt;/div&gt;
+    &lt;div class="sub"&gt;Est. 1992 · New York, NY&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/a&gt;
+
+/* add .sm or .lg for smaller / larger sizes */
+/* drop the .sub line if you don't want a subtitle */</pre>
+
+</body>
+</html>
