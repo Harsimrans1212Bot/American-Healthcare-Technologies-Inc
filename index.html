@@ -14,12 +14,19 @@
   .hero{position:relative;padding:80px 0 120px;overflow:hidden}
   .hero-inner{position:relative;z-index:3;max-width:780px}
   .hero .bg{
-    position:absolute;right:-2%;top:-2%;width:46%;height:110%;opacity:.95;pointer-events:none;z-index:1;
-    display:grid;place-items:center;
+    position:absolute;right:-2%;top:-2%;width:46%;height:110%;opacity:.95;z-index:1;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;
     will-change:transform,opacity;
     transition:opacity 120ms linear;
   }
-  .hero .bg img{max-width:100%;height:auto;filter:drop-shadow(0 30px 60px rgba(3,78,169,.18))}
+  .hero .bg img{max-width:80%;height:auto;filter:drop-shadow(0 30px 60px rgba(3,78,169,.18));pointer-events:none}
+  .hero-side-title{
+    font-family:var(--font-display);font-weight:400;
+    font-size:clamp(22px, 2.4vw, 32px);
+    line-height:1.1;letter-spacing:-0.02em;text-align:center;
+    margin:0;color:var(--ink);text-wrap:balance;max-width:380px;
+  }
+  .hero-side-title em{font-style:italic;color:var(--accent);font-weight:500}
   /* Actual logo block inside hero copy */
   .hero-logo{
     display:inline-flex;align-items:center;gap:18px;
@@ -145,16 +152,13 @@
 <main>
   <!-- HERO -->
   <section class="hero" data-screen-label="Hero">
-    <div class="bg" aria-hidden="true">
-      <!-- real mark, scaled up -->
-      <img class="hero-dipole" src="assets/aht_mark.png" alt=""/>
+    <div class="bg">
+      <img class="hero-dipole" src="assets/aht_mark.png" alt="" aria-hidden="true"/>
+      <h1 class="hero-side-title">The imaging partner <em>without the OEM markup.</em></h1>
     </div>
 
     <div class="container">
       <div class="hero-inner">
-        <span class="tag"><span class="num">01</span> Imaging equipment · service · parts</span>
-        <h1 class="display">The imaging partner <em>without the OEM markup.</em></h1>
-
         <div class="hero-emergency">
           <span class="emerg-pulse" aria-hidden="true"></span>
           <div class="emerg-copy">
