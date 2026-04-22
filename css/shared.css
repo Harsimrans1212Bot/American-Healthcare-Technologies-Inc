@@ -162,6 +162,33 @@ body{padding-top:92px}
 }
 .tag .num{background:var(--accent);color:var(--accent-ink);padding:2px 8px;border-radius:999px;font-weight:500}
 
+/* Hero emergency / fast-fix block */
+.hero-emergency{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:18px 22px;margin:24px 0 28px;max-width:600px;
+  border:1px solid var(--rule);border-left:3px solid var(--accent);
+  background:rgba(255,255,255,0.78);backdrop-filter:blur(6px);
+  box-shadow:0 8px 28px -18px rgba(3,78,169,.18);
+}
+.hero-emergency .emerg-pulse{
+  width:11px;height:11px;border-radius:50%;background:var(--accent);
+  margin-top:6px;flex:0 0 auto;
+  box-shadow:0 0 0 0 color-mix(in srgb, var(--accent) 60%, transparent);
+  animation:blip 1.8s ease-out infinite;
+}
+.hero-emergency .emerg-copy{display:flex;flex-direction:column;gap:6px;min-width:0}
+.hero-emergency b{
+  font-family:var(--font-display);font-weight:500;font-size:19px;
+  letter-spacing:-0.01em;line-height:1.18;color:var(--ink);
+}
+.hero-emergency span{font-size:14.5px;line-height:1.55;color:var(--ink-2)}
+.hero-emergency em{font-style:italic;color:var(--accent);font-weight:500}
+@media (max-width:600px){
+  .hero-emergency{padding:14px 16px}
+  .hero-emergency b{font-size:17px}
+  .hero-emergency span{font-size:13.5px}
+}
+
 /* ---------- SECTION SCAFFOLD ---------- */
 section{padding:96px 0;position:relative}
 .section-head{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;margin-bottom:56px;align-items:end}
