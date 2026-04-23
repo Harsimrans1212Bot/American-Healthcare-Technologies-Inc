@@ -105,10 +105,21 @@
   /* Inline mark svg for hero background */
   .hero-dipole{width:min(460px, 100%);height:auto;display:block;object-fit:contain;will-change:transform}
   @media (max-width:900px){
-    .hero{padding:48px 0 72px}
-    .hero .bg{position:relative;right:auto;top:auto;width:100%;height:auto;margin-top:32px;gap:18px}
-    .hero .bg img{max-width:52%}
-    .hero-side-title{font-size:clamp(18px, 3.2vw, 24px);max-width:320px}
+    /* Put side title after CTAs by reordering hero as a flex column */
+    .hero{padding:48px 0 72px;display:flex;flex-direction:column}
+    .hero .container{order:1}
+    .hero .bg{
+      order:2;position:relative;right:auto;top:auto;width:100%;height:auto;
+      margin:24px 0 0;padding:0 32px;align-items:flex-start;
+      max-width:1320px;margin-left:auto;margin-right:auto;
+    }
+    .hero .bg::before{display:none}
+    .hero-dipole{display:none}         /* hide the big repetitive mark on mobile */
+    .hero-side-title{
+      text-align:left;max-width:none;
+      font-size:clamp(18px, 3.4vw, 26px);line-height:1.25;
+      padding-top:20px;border-top:1px solid var(--rule);width:100%;
+    }
     .hero-inner{max-width:100%}
     h1.display{font-size:clamp(44px, 8vw, 68px)}
     .hero p.lead{font-size:17px}
@@ -116,12 +127,12 @@
   }
   @media (max-width:600px){
     .hero{padding:32px 0 56px}
-    .hero .bg img{max-width:44%}
     h1.display{font-size:clamp(40px, 10vw, 54px);line-height:1}
     .hero p.lead{font-size:16px;margin-bottom:28px}
     .hero-ctas{gap:10px}
     .hero-ctas .callout{padding:10px 14px}
     .hero-ctas .callout b{font-size:17px}
+    .hero-side-title{font-size:clamp(17px, 4.2vw, 22px)}
     .svc-split,.hiw{grid-template-columns:1fr}
   }
 </style>
