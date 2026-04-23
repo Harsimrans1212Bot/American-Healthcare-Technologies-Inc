@@ -123,6 +123,53 @@
   }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
+  // Mobile menu: inject hamburger toggle and wire up open/close
+  (function setupMobileMenu(){
+    const navInner = document.querySelector('.nav .nav-inner');
+    const navEl = document.querySelector('.nav');
+    if (!navInner || !navEl) return;
+    if (navInner.querySelector('.nav-menu-toggle')) return; // idempotent
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'nav-menu-toggle';
+    btn.setAttribute('aria-label', 'Open menu');
+    btn.setAttribute('aria-controls', 'nav-links-panel');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML = '<span></span><span></span><span></span>';
+    navInner.appendChild(btn);
+    const links = navEl.querySelector('.nav-links');
+    if (links && !links.id) links.id = 'nav-links-panel';
+    function close(){
+      navEl.classList.remove('nav--menu-open');
+      btn.setAttribute('aria-expanded','false');
+      btn.setAttribute('aria-label','Open menu');
+      document.body.classList.remove('menu-open');
+    }
+    function open(){
+      navEl.classList.add('nav--menu-open');
+      btn.setAttribute('aria-expanded','true');
+      btn.setAttribute('aria-label','Close menu');
+      document.body.classList.add('menu-open');
+    }
+    btn.addEventListener('click', () => {
+      navEl.classList.contains('nav--menu-open') ? close() : open();
+    });
+    // Close on nav link click (but not on dropdown parent "navtop" which should still reveal submenu)
+    navEl.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', () => {
+        if (window.innerWidth <= 980) close();
+      });
+    });
+    // Close on window resize back to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 980 && navEl.classList.contains('nav--menu-open')) close();
+    });
+    // Close on Escape
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && navEl.classList.contains('nav--menu-open')) close();
+    });
+  })();
+
   // Hide nav on scroll down, show on scroll up (or at top)
   const navEl = document.querySelector('.nav');
   if (navEl){

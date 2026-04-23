@@ -105,11 +105,24 @@
   /* Inline mark svg for hero background */
   .hero-dipole{width:min(460px, 100%);height:auto;display:block;object-fit:contain;will-change:transform}
   @media (max-width:900px){
-    .hero .bg{position:relative;right:auto;top:auto;width:100%;height:auto;margin-top:24px}
-    .svc-split,.promise,.hiw{grid-template-columns:1fr 1fr}
+    .hero{padding:48px 0 72px}
+    .hero .bg{position:relative;right:auto;top:auto;width:100%;height:auto;margin-top:32px;gap:18px}
+    .hero .bg img{max-width:52%}
+    .hero-side-title{font-size:clamp(18px, 3.2vw, 24px);max-width:320px}
+    .hero-inner{max-width:100%}
+    h1.display{font-size:clamp(44px, 8vw, 68px)}
+    .hero p.lead{font-size:17px}
+    .svc-split,.hiw{grid-template-columns:1fr 1fr}
   }
   @media (max-width:600px){
-    .svc-split,.promise,.hiw{grid-template-columns:1fr}
+    .hero{padding:32px 0 56px}
+    .hero .bg img{max-width:44%}
+    h1.display{font-size:clamp(40px, 10vw, 54px);line-height:1}
+    .hero p.lead{font-size:16px;margin-bottom:28px}
+    .hero-ctas{gap:10px}
+    .hero-ctas .callout{padding:10px 14px}
+    .hero-ctas .callout b{font-size:17px}
+    .svc-split,.hiw{grid-template-columns:1fr}
   }
 </style>
 </head>
