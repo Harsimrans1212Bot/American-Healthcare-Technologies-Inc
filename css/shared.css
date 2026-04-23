@@ -152,6 +152,9 @@ body{padding-top:92px}
   font-family:var(--font-mono);font-size:11px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase
 }
 .page-head .meta b{color:var(--ink);font-weight:500}
+.page-head .meta.meta-solo{font-size:13px;letter-spacing:0.14em;gap:14px;align-items:baseline}
+.page-head .meta.meta-solo span{display:inline-flex;align-items:baseline;gap:14px}
+.page-head .meta.meta-solo b{font-family:var(--font-display);font-size:30px;letter-spacing:-0.02em;text-transform:none;color:var(--accent);font-weight:500;font-style:italic}
 
 /* Tag / pill */
 .tag{
@@ -249,7 +252,7 @@ footer{padding:72px 0 36px;border-top:1px solid var(--ink);margin-top:96px;backg
 .foot-contact b{color:var(--ink);font-weight:500;display:block;margin-top:10px}
 .foot-contact a:hover{color:var(--accent)}
 .foot-big{
-  font-family:var(--font-display);font-weight:400;font-size:clamp(44px,8vw,120px);line-height:0.95;letter-spacing:-0.035em;color:var(--ink);margin:0 0 44px;text-wrap:balance;
+  font-family:var(--font-display);font-weight:400;font-size:clamp(26px,3.6vw,48px);line-height:1.1;letter-spacing:-0.02em;color:var(--ink);margin:0 0 36px;text-wrap:balance;
 }
 .foot-big em{font-style:italic;color:var(--accent)}
 .foot-bottom{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--rule);padding-top:22px;color:var(--muted);font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;flex-wrap:wrap;gap:12px}

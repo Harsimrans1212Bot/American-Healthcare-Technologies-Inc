@@ -44,11 +44,21 @@
   }
   h1.display{
     font-family:var(--font-display);font-weight:400;
-    font-size:clamp(52px, 7vw, 104px);
-    line-height:0.98;letter-spacing:-0.03em;margin:22px 0 24px;text-wrap:balance;
+    font-size:clamp(56px, 7.6vw, 112px);
+    line-height:0.96;letter-spacing:-0.035em;margin:0 0 28px;text-wrap:balance;
   }
   h1.display em{font-style:italic;color:var(--accent);font-weight:500}
   h1.display .thin{font-weight:400;color:var(--muted)}
+  .hero-eyebrow{
+    display:inline-flex;align-items:center;gap:12px;
+    font-family:var(--font-mono);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;
+    color:var(--ink-2);font-weight:600;margin-bottom:22px;
+  }
+  .hero-eyebrow .hero-pulse{
+    width:8px;height:8px;border-radius:50%;background:var(--accent);flex:0 0 auto;
+    box-shadow:0 0 0 0 color-mix(in srgb, var(--accent) 60%, transparent);
+    animation:blip 1.8s ease-out infinite;
+  }
   .hero p.lead{color:var(--ink-2);font-size:19px;line-height:1.6;max-width:540px;margin:0 0 36px}
   .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:44px;align-items:center}
   .hero-ctas .callout{
@@ -154,20 +164,13 @@
   <section class="hero" data-screen-label="Hero">
     <div class="bg">
       <img class="hero-dipole" src="assets/aht_mark.png" alt="" aria-hidden="true"/>
-      <h1 class="hero-side-title">The imaging partner <em>without the OEM markup.</em></h1>
+      <h2 class="hero-side-title">The imaging partner <em>without the OEM markup.</em></h2>
     </div>
 
     <div class="container">
       <div class="hero-inner">
-        <div class="hero-emergency">
-          <span class="emerg-pulse" aria-hidden="true"></span>
-          <div class="emerg-copy">
-            <b>Equipment down? Tube out? Cryo venting?</b>
-            <span>We fix most issues in <em>hours</em> &mdash; not days. Talk to an imaging engineer, not a ticket queue.</span>
-          </div>
-        </div>
-
-        <p class="lead">American Healthcare Technologies sources, services, and installs pre-owned imaging systems for hospitals, imaging centers and clinics across North America &mdash; with field engineers and a parts catalog behind every deal.</p>
+        <h1 class="display">Fixed in <em>days</em>. Not weeks.</h1>
+        <p class="lead">Equipment down? Tube out? Cryo venting? Talk to an imaging engineer &mdash; not a ticket queue. American Healthcare Technologies sources, services, and installs pre-owned imaging systems for hospitals across North America.</p>
         <div class="hero-ctas">
           <div class="callout">
             <span>24/7 engineer line</span>
@@ -179,21 +182,65 @@
     </div>
   </section>
 
-  <!-- Promise strip -->
-  <div class="container reveal">
-    <div class="promise">
-      <div class="p"><span class="k">Systems delivered</span><span class="v">500+ <span class="ph">Placeholder</span></span></div>
-      <div class="p"><span class="k">Parts in catalog</span><span class="v">12k <span class="ph">Placeholder</span></span></div>
-      <div class="p"><span class="k">Service response</span><span class="v"><em>24/7</em></span></div>
+
+  <!-- Services -->
+  <section class="reveal" data-screen-label="Services">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="section-num">01 / Services</div>
+          <h2 class="sec">Beyond the <em>sale.</em></h2>
+        </div>
+        <p>An imaging system is the easy part. What matters is keeping it running — and getting it in, out, and back up fast. Three services, one phone number.</p>
+      </div>
+      <div class="svc-split">
+        <a class="s" href="installation.html">
+          <span class="n">01 / Install</span>
+          <h4>Installation & De-install</h4>
+          <p>Rigging, site-prep, cryogen and magnet work, room reconstruction, DICOM/PACS integration. A single project manager from first walk-through to first patient scan.</p>
+          <span class="go">See the process →</span>
+        </a>
+        <a class="s" href="parts.html">
+          <span class="n">02 / Parts</span>
+          <h4>Parts</h4>
+          <p>OEM, aftermarket, and refurbished parts for MRI, CT, X-Ray, Ultrasound — indexed, tested and shipped next-day.</p>
+          <span class="go">Search parts →</span>
+        </a>
+        <a class="s" href="service.html">
+          <span class="n">03 / Service</span>
+          <h4>Service & Maintenance</h4>
+          <p>Preventative maintenance contracts, time-and-materials repair, and a 24/7 emergency line staffed by imaging engineers.</p>
+          <span class="go">Learn more →</span>
+        </a>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <!-- How we work -->
+  <section class="reveal" data-screen-label="Process">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="section-num">02 / Process</div>
+          <h2 class="sec">How an <em>AHT deal</em> runs.</h2>
+        </div>
+        <p>From the first scoping call to first-patient scan — a concise, documented process that your biomed team, finance team and radiologist can all follow.</p>
+      </div>
+      <div class="hiw">
+        <div class="step"><h5>Scope</h5><p>We learn your facility, patient volume, and existing install base — then shortlist systems that fit.</p></div>
+        <div class="step"><h5>Source</h5><p>Inspection, de-install, transport and refurbishment — with documentation for every serial number.</p></div>
+        <div class="step"><h5>Install</h5><p>Site-prep, rigging, calibration, and applications training. A single project manager owns the date.</p></div>
+        <div class="step"><h5>Support</h5><p>Service contract and parts line — typically live within 48 hours of first scan.</p></div>
+      </div>
+    </div>
+  </section>
 
   <!-- Modalities -->
   <section class="modalities reveal" data-screen-label="Modalities">
     <div class="container">
       <div class="section-head">
         <div>
-          <div class="section-num">01 / Equipment</div>
+          <div class="section-num">03 / Equipment</div>
           <h2 class="sec">Every <em>modality</em>, one partner.</h2>
         </div>
         <p>We buy, refurbish, and broker a full range of diagnostic imaging equipment — from 1.5T magnets to handheld ultrasound. Browse by category, or tell us what you need.</p>
@@ -235,58 +282,6 @@
           <p>Surgical and mobile C-Arms — pain management, ortho, vascular. Pulsed-fluoro ready, fully serviced.</p>
           <div class="cfoot"><b>14 in stock <span class="ph">Placeholder</span></b><span class="go">View →</span></div>
         </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section class="reveal" data-screen-label="Services">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <div class="section-num">02 / Services</div>
-          <h2 class="sec">Beyond the <em>sale.</em></h2>
-        </div>
-        <p>An imaging system is the easy part. What matters is keeping it running — and getting it in, out, and back up fast. Three services, one phone number.</p>
-      </div>
-      <div class="svc-split">
-        <a class="s" href="service.html">
-          <span class="n">01 / Service</span>
-          <h4>Service & Maintenance</h4>
-          <p>Preventative maintenance contracts, time-and-materials repair, and a 24/7 emergency line staffed by imaging engineers.</p>
-          <span class="go">Learn more →</span>
-        </a>
-        <a class="s" href="parts.html">
-          <span class="n">02 / Parts</span>
-          <h4>Parts</h4>
-          <p>OEM, aftermarket, and refurbished parts for MRI, CT, X-Ray, Ultrasound — indexed, tested and shipped next-day.</p>
-          <span class="go">Search parts →</span>
-        </a>
-        <a class="s" href="installation.html">
-          <span class="n">03 / Install</span>
-          <h4>Installation & De-install</h4>
-          <p>Rigging, site-prep, cryogen and magnet work, room reconstruction, and DICOM/PACS integration, start to finish.</p>
-          <span class="go">See the process →</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- How we work -->
-  <section class="reveal" data-screen-label="Process">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <div class="section-num">03 / Process</div>
-          <h2 class="sec">How an <em>AHT deal</em> runs.</h2>
-        </div>
-        <p>From the first scoping call to first-patient scan — a concise, documented process that your biomed team, finance team and radiologist can all follow.</p>
-      </div>
-      <div class="hiw">
-        <div class="step"><h5>Scope</h5><p>We learn your facility, patient volume, and existing install base — then shortlist systems that fit.</p></div>
-        <div class="step"><h5>Source</h5><p>Inspection, de-install, transport and refurbishment — with documentation for every serial number.</p></div>
-        <div class="step"><h5>Install</h5><p>Site-prep, rigging, calibration, and applications training. A single project manager owns the date.</p></div>
-        <div class="step"><h5>Support</h5><p>Service contract and parts line — typically live within 48 hours of first scan.</p></div>
       </div>
     </div>
   </section>
