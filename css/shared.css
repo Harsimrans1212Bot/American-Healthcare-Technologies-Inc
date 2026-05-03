@@ -335,12 +335,16 @@ footer{padding:72px 0 36px;border-top:1px solid var(--ink);margin-top:96px;backg
   .nav-links a.active{color:var(--accent)}
   .nav-links .caret{display:none}
 
-  /* Expand dropdowns inline on mobile */
+  /* Expand dropdowns inline on mobile -- but only make them tappable
+     when the menu is open. Without this scope, the dropdown links would
+     intercept hero-area taps even though the menu panel is invisible. */
   .dropdown{
-    position:static;transform:none;opacity:1;pointer-events:auto;
+    position:static;transform:none;
     min-width:0;background:transparent;border:0;box-shadow:none;
     padding:0 0 12px 8px;display:flex;flex-direction:column;gap:2px;
+    /* opacity:0 + pointer-events:none inherited from desktop base rule */
   }
+  .nav--menu-open .dropdown{opacity:1;pointer-events:auto}
   .dropdown a{
     font-family:var(--font-body);font-weight:500;font-size:14.5px;
     padding:8px 8px;color:var(--muted);text-transform:none;letter-spacing:0;
