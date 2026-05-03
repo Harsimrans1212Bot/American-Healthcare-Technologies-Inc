@@ -62,12 +62,21 @@
   .hero p.lead{color:var(--ink-2);font-size:19px;line-height:1.6;max-width:540px;margin:0 0 36px}
   .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:44px;align-items:center}
   .hero-ctas .callout{
-    display:inline-flex;align-items:center;gap:14px;padding:12px 18px;border:1px solid var(--rule);background:var(--surface);
-    font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);
+    display:inline-flex;align-items:center;gap:12px;padding:12px 18px;
+    border:1px solid var(--rule);background:var(--surface);color:var(--muted);
+    font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
+    text-decoration:none;cursor:pointer;
+    transition:border-color .15s, color .15s, background .15s;
   }
-  .hero-ctas .callout b{font-family:var(--font-display);font-size:20px;color:var(--ink);letter-spacing:-0.01em;text-transform:none;font-weight:500}
-  .hero-ctas .callout b a{display:inline-flex;align-items:center;gap:8px}
-  .hero-ctas .callout b a:hover{color:var(--accent)}
+  .hero-ctas .callout:hover{border-color:var(--ink);color:var(--ink)}
+  .hero-ctas .callout:hover .callout-num{color:var(--accent)}
+  .hero-ctas .callout .callout-icon{color:var(--accent);flex:0 0 auto}
+  .hero-ctas .callout .callout-label{display:inline-block}
+  .hero-ctas .callout .callout-num{
+    font-family:var(--font-display);font-size:20px;color:var(--ink);
+    letter-spacing:-0.01em;text-transform:none;font-weight:500;
+    transition:color .15s;
+  }
 
   /* Modality strip on home */
   .modalities{padding:80px 0}
@@ -196,10 +205,11 @@
         <h1 class="display">Fixed in <em>days</em>. Not weeks.</h1>
         <p class="lead">Equipment down? Tube out? Cryo venting? Talk to an imaging engineer &mdash; not a ticket queue. American Healthcare Technologies sources, services, and installs pre-owned imaging systems for hospitals across North America.</p>
         <div class="hero-ctas">
-          <div class="callout">
-            <span>24/7 engineer line</span>
-            <b><a href="tel:+19178565211">+1-(917)-856-5211</a></b>
-          </div>
+          <a class="callout" href="tel:+19178565211">
+            <svg class="callout-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+            <span class="callout-label">24/7 engineer line</span>
+            <b class="callout-num">+1-(917)-856-5211</b>
+          </a>
           <a class="btn ghost" href="equipment.html">Browse equipment <span class="arr">→</span></a>
         </div>
       </div>

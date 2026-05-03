@@ -82,31 +82,37 @@
 
   if (reduced) return;
 
-  // --- Tilt cards ---
-  document.querySelectorAll('.tilt, .mod-card').forEach(card=>{
-    let raf = null;
-    card.addEventListener('pointermove', (e)=>{
-      const r = card.getBoundingClientRect();
-      const px = (e.clientX - r.left) / r.width - 0.5;
-      const py = (e.clientY - r.top) / r.height - 0.5;
-      if (raf) cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(()=>{
-        card.style.transform = `perspective(900px) rotateX(${(-py*4).toFixed(2)}deg) rotateY(${(px*5).toFixed(2)}deg) translateY(-2px)`;
+  // --- Tilt cards (desktop hover only -- skipped on touch devices) ---
+  if (window.matchMedia('(hover:hover)').matches){
+    document.querySelectorAll('.tilt, .mod-card').forEach(card=>{
+      let raf = null;
+      card.addEventListener('pointermove', (e)=>{
+        if (e.pointerType !== 'mouse') return;
+        const r = card.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - 0.5;
+        const py = (e.clientY - r.top) / r.height - 0.5;
+        if (raf) cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(()=>{
+          card.style.transform = `perspective(900px) rotateX(${(-py*4).toFixed(2)}deg) rotateY(${(px*5).toFixed(2)}deg) translateY(-2px)`;
+        });
+      });
+      card.addEventListener('pointerleave', ()=>{
+        card.style.transform = '';
       });
     });
-    card.addEventListener('pointerleave', ()=>{
-      card.style.transform = '';
-    });
-  });
+  }
 
-  // --- Magnetic buttons ---
-  document.querySelectorAll('.btn, .phone-cta, .mag').forEach(btn=>{
-    btn.addEventListener('pointermove', (e)=>{
-      const r = btn.getBoundingClientRect();
-      const px = (e.clientX - r.left - r.width/2) * 0.18;
-      const py = (e.clientY - r.top - r.height/2) * 0.18;
-      btn.style.transform = `translate(${px.toFixed(1)}px, ${py.toFixed(1)}px)`;
+  // --- Magnetic buttons (desktop hover only -- skipped on touch devices) ---
+  if (window.matchMedia('(hover:hover)').matches){
+    document.querySelectorAll('.btn, .phone-cta, .mag').forEach(btn=>{
+      btn.addEventListener('pointermove', (e)=>{
+        if (e.pointerType !== 'mouse') return;
+        const r = btn.getBoundingClientRect();
+        const px = (e.clientX - r.left - r.width/2) * 0.18;
+        const py = (e.clientY - r.top - r.height/2) * 0.18;
+        btn.style.transform = `translate(${px.toFixed(1)}px, ${py.toFixed(1)}px)`;
+      });
+      btn.addEventListener('pointerleave', ()=>{ btn.style.transform = ''; });
     });
-    btn.addEventListener('pointerleave', ()=>{ btn.style.transform = ''; });
-  });
+  }
 })();
