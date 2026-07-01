@@ -4,6 +4,8 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Contact — AHT</title>
+<meta name="description" content="Contact American Healthcare Technologies — equipment sourcing, service, parts, installs. +1-(917)-856-5211."/>
+<link rel="icon" type="image/png" href="assets/aht_mark.png"/>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/shared.css?v=1776659983034"/>
 <link rel="stylesheet" href="css/scroll-fx.css?v=1776659983034"/>
@@ -133,7 +135,7 @@
         </div>
         <div class="field"><label>Message / details</label><textarea name="message" placeholder="Make, model, room dimensions, error codes, what we can help with..."></textarea></div>
         <div class="submit-row">
-          <small>By submitting, you agree to our [Placeholder privacy policy]. We never share your info.</small>
+          <small>We never share your info.</small>
           <button class="btn primary" type="submit">Send inquiry <span class="arr">→</span></button>
         </div>
         <div class="success" id="success">✓ &nbsp;Got it — you'll hear back within one business day. For emergencies, call +1-(917)-856-5211.</div>
@@ -196,11 +198,25 @@
 <script src="js/scroll-fx.js?v=1776659983034"></script>
 <script>
   const f = document.getElementById('contact-form');
-  f.addEventListener('submit', e=>{
+  f.addEventListener('submit', async e=>{
     e.preventDefault();
     if(!f.checkValidity()){ f.reportValidity(); return; }
-    document.getElementById('success').classList.add('on');
-    f.querySelectorAll('input,select,textarea,button').forEach(el=>el.disabled=true);
+    const btn = f.querySelector('button[type="submit"]');
+    btn.disabled = true; btn.innerHTML = 'Sending…';
+    const data = Object.fromEntries(new FormData(f).entries());
+    try{
+      const r = await fetch('https://formsubmit.co/ajax/info@ahtiny.com', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json','Accept':'application/json'},
+        body: JSON.stringify({...data, _subject: 'ahtiny.com inquiry — ' + (data.interest || 'General'), _template: 'table'})
+      });
+      if(!r.ok) throw new Error('send failed');
+      document.getElementById('success').classList.add('on');
+      f.querySelectorAll('input,select,textarea,button').forEach(el=>el.disabled=true);
+    }catch(err){
+      btn.disabled = false; btn.innerHTML = 'Send inquiry <span class="arr">→</span>';
+      alert('Something went wrong sending your message. Please call +1-(917)-856-5211 or email info@ahtiny.com.');
+    }
   });
 </script>
 </body></html>
