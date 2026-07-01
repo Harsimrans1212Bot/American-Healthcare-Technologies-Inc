@@ -98,37 +98,52 @@
       <p>We source every part on demand through our supplier network. Call with your part number — if it exists, we'll find it.</p>
     </div>
     <div class="cats">
-      <a class="cat"><span class="k">MRI</span><h4>RF coils</h4><p>Head, body, knee, shoulder, breast, spine. All major platforms.</p></a>
-      <a class="cat"><span class="k">MRI</span><h4>Gradient amps</h4><p>Replacements and refurbs for Aera, Skyra, Signa.</p></a>
-      <a class="cat"><span class="k">CT</span><h4>X-ray tubes</h4><p>Straton, Performix, MRC. With tube-count history.</p></a>
-      <a class="cat"><span class="k">CT</span><h4>DAS / detector</h4><p>Data acquisition boards and detector modules.</p></a>
-      <a class="cat"><span class="k">US</span><h4>Probes / transducers</h4><p>Linear, curved, phased, TEE, endocavity.</p></a>
-      <a class="cat"><span class="k">XR</span><h4>Flat-panel detectors</h4><p>Wireless and tethered. Canon, Varex, Trixell.</p></a>
-      <a class="cat"><span class="k">XR</span><h4>HV generators</h4><p>High-voltage generators and tanks for DR & RF.</p></a>
-      <a class="cat"><span class="k">Shared</span><h4>Consoles & monitors</h4><p>Medical-grade monitors, PCs, and replacement consoles.</p></a>
+      <a class="cat" href="#request"><span class="k">MRI</span><h4>RF coils</h4><p>Head, body, knee, shoulder, breast, spine. All major platforms.</p></a>
+      <a class="cat" href="#request"><span class="k">MRI</span><h4>Gradient amps</h4><p>Replacements and refurbs for Aera, Skyra, Signa.</p></a>
+      <a class="cat" href="#request"><span class="k">CT</span><h4>X-ray tubes</h4><p>Straton, Performix, MRC. With tube-count history.</p></a>
+      <a class="cat" href="#request"><span class="k">CT</span><h4>DAS / detector</h4><p>Data acquisition boards and detector modules.</p></a>
+      <a class="cat" href="#request"><span class="k">US</span><h4>Probes / transducers</h4><p>Linear, curved, phased, TEE, endocavity.</p></a>
+      <a class="cat" href="#request"><span class="k">XR</span><h4>Flat-panel detectors</h4><p>Wireless and tethered. Canon, Varex, Trixell.</p></a>
+      <a class="cat" href="#request"><span class="k">XR</span><h4>HV generators</h4><p>High-voltage generators and tanks for DR & RF.</p></a>
+      <a class="cat" href="#request"><span class="k">Shared</span><h4>Consoles & monitors</h4><p>Medical-grade monitors, PCs, and replacement consoles.</p></a>
     </div>
 
-    <div class="parts-table" aria-label="Featured parts">
-      <div class="parts-head">
-        <span>Part · Description</span>
-        <span>Modality</span>
-        <span>Condition</span>
-        <span>Ships</span>
-        <span></span>
-      </div>
-      <div class="parts-row"><div class="p-name"><b>GE 5200000-2 — 8ch head coil</b><span>Signa HDxt · 1.5T</span></div><span class="p-mono">MRI</span><span class="p-cond oem">OEM</span><span class="p-mono">24 hr</span><button class="qbtn">Quote →</button></div>
-      <div class="parts-row"><div class="p-name"><b>Siemens Straton MX — CT tube</b><span>SOMATOM Definition AS</span></div><span class="p-mono">CT</span><span class="p-cond">Refurb</span><span class="p-mono">48 hr</span><button class="qbtn">Quote →</button></div>
-      <div class="parts-row"><div class="p-name"><b>Philips X7-2t — TEE probe</b><span>EPIQ / iE33</span></div><span class="p-mono">Ultrasound</span><span class="p-cond oem">OEM</span><span class="p-mono">24 hr</span><button class="qbtn">Quote →</button></div>
-      <div class="parts-row"><div class="p-name"><b>Canon CXDI-710C wireless DR</b><span>Universal DR rooms</span></div><span class="p-mono">X-Ray</span><span class="p-cond">Refurb</span><span class="p-mono">24 hr</span><button class="qbtn">Quote →</button></div>
-      <div class="parts-row"><div class="p-name"><b>GE Performix Pro — CT tube</b><span>LightSpeed VCT</span></div><span class="p-mono">CT</span><span class="p-cond oem">OEM</span><span class="p-mono">72 hr</span><button class="qbtn">Quote →</button></div>
-      <div class="parts-row"><div class="p-name"><b>Hologic Dimensions — Gantry board</b><span>Selenia Dimensions</span></div><span class="p-mono">Mammo</span><span class="p-cond">Refurb</span><span class="p-mono">48 hr</span><button class="qbtn">Quote →</button></div>
-    </div>
   </div></section>
 
   <section class="reveal"><div class="container">
     <div class="cta-banner">
       <div><h3>Can't find the <em>part</em>?</h3><p>We get asked for one-off or obsolete parts weekly. Send the part number or a photo and we'll source it.</p></div>
       <div class="cta-right"><span class="lbl">Parts desk</span><a class="big-phone" href="tel:+19178565211">+1-(917)-856-5211</a><a class="btn ghost" style="border-color:rgba(255,255,255,.2);color:#fff" href="contact.html">Email it over →</a></div>
+    </div>
+
+    <div class="parts-req" id="request">
+      <div class="pr-head">
+        <h3>Request a <em>part</em>.</h3>
+        <p>Give us the part number if you have it — or just the machine and what failed. We check our network and come back with price and lead time, usually same day.</p>
+      </div>
+      <form id="parts-form" novalidate>
+        <div class="form-row">
+          <div class="field"><label>Part number / description *</label><input name="part" required placeholder="e.g. GE 5200000-2, or 'CT tube for LightSpeed VCT'"/></div>
+          <div class="field"><label>Modality</label>
+            <select name="modality"><option value="">— Select —</option><option>MRI</option><option>CT</option><option>Ultrasound</option><option>X-Ray / DR</option><option>Mammography</option><option>C-Arm</option><option>Other</option></select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label>Name *</label><input name="name" required/></div>
+          <div class="field"><label>Facility / company</label><input name="company"/></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label>Email *</label><input name="email" type="email" required/></div>
+          <div class="field"><label>Urgency</label>
+            <select name="urgency"><option value="">— Select —</option><option>Emergency — system down</option><option>This week</option><option>Planned maintenance</option><option>Pricing research</option></select>
+          </div>
+        </div>
+        <div class="submit-row">
+          <small>Photos help — you can also email them to <a href="mailto:info@ahtiny.com" style="color:inherit;text-decoration:underline">info@ahtiny.com</a>. See our <a href="privacy.html" style="color:inherit;text-decoration:underline">privacy policy</a>.</small>
+          <button class="btn primary" type="submit">Request quote <span class="arr">→</span></button>
+        </div>
+        <div class="pr-success" id="parts-success">✓ &nbsp;Request received — we'll come back with price and lead time. Emergency? Call +1-(917)-856-5211.</div>
+      </form>
     </div>
   </div></section>
 </main>
@@ -185,4 +200,43 @@
 </footer>
 <script src="js/shared.js?v=1776659983034"></script>
 <script src="js/scroll-fx.js?v=1776659983034"></script>
+<style>
+  .parts-req{margin-top:56px;border:1px solid var(--rule);background:var(--surface);padding:36px;display:grid;grid-template-columns:1fr 1.4fr;gap:40px}
+  .parts-req .pr-head h3{font-family:var(--font-display);font-weight:400;font-size:30px;margin:0 0 12px;letter-spacing:-0.02em}
+  .parts-req .pr-head h3 em{font-style:italic;color:var(--accent)}
+  .parts-req .pr-head p{color:var(--muted);font-size:14px;line-height:1.6;margin:0}
+  .parts-req form{display:flex;flex-direction:column;gap:18px}
+  .parts-req .form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .parts-req .field{display:flex;flex-direction:column;gap:6px}
+  .parts-req .field label{font-family:var(--font-mono);font-size:10.5px;color:var(--muted);letter-spacing:0.14em;text-transform:uppercase}
+  .parts-req .field input,.parts-req .field select{background:var(--bg);border:0;border-bottom:1px solid var(--rule);padding:10px 2px;color:var(--ink);font-family:inherit;font-size:15px}
+  .parts-req .field input:focus,.parts-req .field select:focus{outline:none;border-color:var(--ink)}
+  .parts-req .submit-row{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:4px}
+  .parts-req .submit-row small{color:var(--muted);font-size:11.5px;max-width:340px;line-height:1.5}
+  .parts-req .pr-success{display:none;padding:20px;border:1px solid var(--accent);background:color-mix(in srgb, var(--accent) 8%, var(--surface))}
+  .parts-req .pr-success.on{display:block}
+  @media (max-width:860px){.parts-req{grid-template-columns:1fr;padding:24px}.parts-req .form-row{grid-template-columns:1fr}}
+</style>
+<script>
+  const pf = document.getElementById('parts-form');
+  pf.addEventListener('submit', async e=>{
+    e.preventDefault();
+    if(!pf.checkValidity()){ pf.reportValidity(); return; }
+    const btn = pf.querySelector('button[type="submit"]');
+    btn.disabled = true; btn.innerHTML = 'Sending…';
+    const data = Object.fromEntries(new FormData(pf).entries());
+    try{
+      const r = await fetch('https://formsubmit.co/ajax/info@ahtiny.com', {
+        method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body: JSON.stringify({...data, _subject:'ahtiny.com PARTS request — ' + (data.part||'').slice(0,60), _template:'table'})
+      });
+      if(!r.ok) throw new Error('send failed');
+      document.getElementById('parts-success').classList.add('on');
+      pf.querySelectorAll('input,select,button').forEach(el=>el.disabled=true);
+    }catch(err){
+      btn.disabled=false; btn.innerHTML='Request quote <span class="arr">→</span>';
+      alert('Something went wrong. Please call +1-(917)-856-5211 or email info@ahtiny.com.');
+    }
+  });
+</script>
 </body></html>
