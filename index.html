@@ -79,6 +79,21 @@
     letter-spacing:-0.01em;text-transform:none;font-weight:500;
     transition:color .15s;
   }
+  .hero-ctas .callout-project{cursor:default;gap:18px;max-width:520px}
+  .callout-project .cp-text{display:flex;flex-direction:column;gap:4px;min-width:0}
+  .callout-project .callout-label{color:var(--ink);font-weight:600}
+  .callout-project .cp-sub{
+    font-family:var(--font-body);font-size:12.5px;line-height:1.45;color:var(--muted);
+    text-transform:none;letter-spacing:0;
+  }
+  .callout-project .cp-go{
+    flex:0 0 auto;font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--accent);text-decoration:none;border-bottom:1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+    padding-bottom:2px;white-space:nowrap;transition:border-color .15s;
+  }
+  .callout-project .cp-go:hover{border-color:var(--accent)}
+  .callout-project:hover{border-color:var(--rule);color:var(--muted)}
+  @media (max-width:640px){.hero-ctas .callout-project{max-width:100%}}
 
   /* Modality strip on home */
   .modalities{padding:80px 0}
@@ -215,7 +230,13 @@
             <span class="callout-label">24/7 engineer line</span>
             <b class="callout-num">+1-(917)-856-5211</b>
           </a>
-          <a class="btn ghost" href="contact.html">Send a request <span class="arr">→</span></a>
+          <div class="callout callout-project">
+            <div class="cp-text">
+              <span class="callout-label">Have a project in mind?</span>
+              <span class="cp-sub">Sourcing a system, planning a relocation, or scoping a service contract — talk to an engineer.</span>
+            </div>
+            <a class="cp-go" href="contact.html">Send a request <span class="arr">→</span></a>
+          </div>
         </div>
       </div>
     </div>
