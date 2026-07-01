@@ -97,7 +97,7 @@
     </div>
     <div class="foot-bottom">
       <span>© <span data-year></span> American Healthcare Technologies, Inc.</span>
-      <span>All rights reserved · ISO 13485 certification in progress</span>
+      <span>All rights reserved · ISO 13485 certification in progress · <a href="privacy.html" style="color:inherit">Privacy policy</a></span>
     </div>
   </div>`;
 
