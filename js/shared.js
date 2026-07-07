@@ -84,8 +84,7 @@
           <a href="${PHONE_TEL}">${PHONE}</a><br/>
           <a href="mailto:${EMAIL}">${EMAIL}</a>
           <b>Hours</b>
-          Mon–Fri · 8:00–18:00 ET<br/>
-          Sat · On-call<br/>
+          Mon–Sat · 8:00–18:00 ET<br/>
           24/7 emergency service
           <b>Address</b>
           545 Eighth Avenue, Suite 1535<br/>
