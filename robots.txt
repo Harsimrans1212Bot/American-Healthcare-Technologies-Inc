@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /aht-lockup.html
+Disallow: /partials.html
+
+Sitemap: https://www.ahtiny.com/sitemap.xml
